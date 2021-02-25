@@ -1,0 +1,25 @@
+[package]
+name = "tetsy-trie-root"
+version = "0.16.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+description = "Tetsy In-memory patricia trie operations"
+repository = "https://github.com/tetcoin/trie"
+license = "Apache-2.0"
+categories = [ "no-std" ]
+edition = "2018"
+
+[dependencies]
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2" }
+
+[dev-dependencies]
+hex-literal = "0.2"
+tetsy-keccak-hasher = { path = "../test-support/tetsy-keccak-hasher", version = "0.15.2" }
+tetsy-trie-standardmap = { path = "../test-support/tetsy-trie-standardmap", version = "0.15.2" }
+# DISABLE the following line when publishing until cyclic dependencies are resolved https://github.com/rust-lang/cargo/issues/4242
+tetsy-reference-trie = { path = "../test-support/tetsy-reference-trie", default-features = false, version = "0.20.0" }
+
+[features]
+default = ["std"]
+std = [
+	"tetsy-hash-db/std"
+]

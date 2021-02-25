@@ -1,0 +1,12 @@
+[workspace]
+members = [
+	"tetsy-hash-db",
+	"tetsy-memory-db",
+	"tetsy-hash256-std-hasher",
+	"test-support/tetsy-keccak-hasher",
+	"test-support/tetsy-reference-trie",
+	"test-support/tetsy-trie-standardmap",
+	"test-support/tetsy-trie-bench",
+	"tetsy-trie-db",
+	"tetsy-trie-root"
+]

@@ -1,0 +1,11 @@
+[package]
+name = "tetsy-trie-standardmap"
+description = "Standard tetsy test map for profiling tries"
+version = "0.15.2"
+authors = ["Parity Technologies <admin@parity.io>"]
+license = "Apache-2.0"
+edition = "2018"
+
+[dependencies]
+tetsy-keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.2"}
+tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.2"}

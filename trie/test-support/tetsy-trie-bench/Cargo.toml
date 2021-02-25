@@ -1,0 +1,18 @@
+[package]
+name = "tetsy-trie-bench"
+description = "Standard benchmarking suite for tries"
+version = "0.20.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+repository = "https://github.com/tetcoin/trie/"
+license = "Apache-2.0"
+edition = "2018"
+
+[dependencies]
+tetsy-keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.2" }
+tetsy-trie-standardmap = { path = "../tetsy-trie-standardmap", version = "0.15.2" }
+tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.2"}
+tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.19.0" }
+tetsy-trie-root = { path = "../../tetsy-trie-root", version = "0.16.0" }
+tetsy-trie-db = { path = "../../tetsy-trie-db", version = "0.20.0" }
+criterion = "0.2.8"
+tetsy-scale-codec = { version = "1.0.3" }

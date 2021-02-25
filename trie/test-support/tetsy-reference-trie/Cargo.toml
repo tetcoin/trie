@@ -1,0 +1,32 @@
+[package]
+name = "tetsy-reference-trie"
+version = "0.20.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+description = "Simple tetsy reference trie format"
+repository = "https://github.com/tetcoin/trie/"
+license = "Apache-2.0"
+edition = "2018"
+
+[dependencies]
+tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.2"}
+tetsy-hash256-std-hasher = { path = "../../tetsy-hash256-std-hasher", version = "0.15.2" }
+tetsy-keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.2" }
+tetsy-trie-db = { path = "../../tetsy-trie-db", default-features = false, version = "0.20.0" }
+tetsy-trie-root = { path = "../../tetsy-trie-root", default-features = false, version = "0.16.0" }
+tetsy-scale-codec = { version = "1.0.3", features = ["derive"] }
+
+[dev-dependencies]
+tetsy-trie-bench = { path = "../tetsy-trie-bench", version = "0.20.0" }
+criterion = "0.2.8"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[features]
+default = ["std"]
+# no actual support for std, only to avoid a cargo issues
+std = [
+  "tetsy-trie-db/std",
+  "tetsy-trie-root/std",
+]

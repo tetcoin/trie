@@ -1,0 +1,16 @@
+language: rust
+branches:
+  only:
+    - master
+rust:
+  - stable
+  - nightly
+matrix:
+  allow_failures:
+    - rust: nightly
+script:
+  - cargo check --all --tests --benches
+  - cargo test --all
+  - cd tetsy-trie-db && cargo check --no-default-features && cd ..
+  - cd tetsy-memory-db && cargo check --no-default-features && cd ..
+  - cd tetsy-trie-root && cargo check --no-default-features && cd ..
