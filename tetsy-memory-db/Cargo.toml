@@ -10,7 +10,8 @@ edition = "2018"
 [dependencies]
 heapsize = { version = "0.4", optional = true }
 tetsy-util-mem = { version = "0.3", default-features = false }
-tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2"}
+# tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2"}
+tetsy-hash-db = { default-features = false, version = "0.15.2"}
 hashbrown = { version = "0.6.3", default-features = false, features = [ "ahash" ] }
 # There's a compilation error with ahash-0.2.17, which is permitted by the 0.2.11 constraint in hashbrown.
 ahash = "0.2.18"
