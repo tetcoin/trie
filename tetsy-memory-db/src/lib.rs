@@ -21,7 +21,7 @@ extern crate alloc;
 
 use tetsy_hash_db::{HashDB, HashDBRef, PlainDB, PlainDBRef, Hasher as KeyHasher,
 	AsHashDB, AsPlainDB, Prefix};
-use parity_util_mem::{MallocSizeOf, MallocSizeOfOps};
+use tetsy_util_mem::{MallocSizeOf, MallocSizeOfOps};
 #[cfg(feature = "deprecated")]
 #[cfg(feature = "std")]
 use heapsize::HeapSizeOf;
