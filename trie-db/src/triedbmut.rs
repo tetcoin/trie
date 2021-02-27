@@ -20,7 +20,7 @@ use super::node::{NodeHandle as EncodedNodeHandle, Node as EncodedNode, decode_h
 use crate::node_codec::NodeCodec;
 use super::{DBValue, node::NodeKey};
 
-use hash_db::{HashDB, Hasher, Prefix, EMPTY_PREFIX};
+use tetsy_hash_db::{HashDB, Hasher, Prefix, EMPTY_PREFIX};
 use crate::nibble::{NibbleVec, NibbleSlice, nibble_ops, BackingByteVec};
 use crate::core_::convert::TryFrom;
 use crate::core_::mem;
@@ -407,15 +407,15 @@ impl<'a, H> Index<&'a StorageHandle> for NodeStorage<H> {
 /// ```
 /// extern crate trie_db;
 /// extern crate reference_trie;
-/// extern crate hash_db;
+/// extern crate tetsy_hash_db;
 /// extern crate keccak_hasher;
-/// extern crate memory_db;
+/// extern crate tetsy_memory_db;
 ///
-/// use hash_db::Hasher;
+/// use tetsy_hash_db::Hasher;
 /// use reference_trie::{RefTrieDBMut, TrieMut};
 /// use trie_db::DBValue;
 /// use keccak_hasher::KeccakHasher;
-/// use memory_db::*;
+/// use tetsy_memory_db::*;
 ///
 /// fn main() {
 ///   let mut memdb = MemoryDB::<KeccakHasher, HashKey<_>, DBValue>::default();
@@ -1630,8 +1630,8 @@ mod tests {
 	use env_logger;
 	use crate::standardmap::*;
 	use crate::DBValue;
-	use memory_db::{MemoryDB, PrefixedKey};
-	use hash_db::{Hasher, HashDB};
+	use tetsy_memory_db::{MemoryDB, PrefixedKey};
+	use tetsy_hash_db::{Hasher, HashDB};
 	use keccak_hasher::KeccakHasher;
 	use reference_trie::{RefTrieDBMutNoExt, RefTrieDBMut, TrieMut, NodeCodec,
 		ReferenceNodeCodec, reference_trie_root, reference_trie_root_no_extension};

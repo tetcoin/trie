@@ -18,7 +18,7 @@
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
-extern crate hash_db;
+extern crate tetsy_hash_db;
 
 #[cfg(feature = "std")]
 use std::collections::BTreeMap;
@@ -35,7 +35,7 @@ use core::cmp;
 #[cfg(test)]
 extern crate keccak_hasher;
 
-pub use hash_db::Hasher;
+pub use tetsy_hash_db::Hasher;
 
 /// Byte-stream oriented trait for constructing closed-form tries.
 pub trait TrieStream {

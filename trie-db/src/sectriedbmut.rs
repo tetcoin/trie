@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use hash_db::{HashDB, Hasher};
+use tetsy_hash_db::{HashDB, Hasher};
 use super::{Result, DBValue, TrieMut, TrieDBMut, TrieLayout, TrieHash, CError};
 
 /// A mutable `Trie` implementation which hashes keys and uses a generic `HashDB` backing database.
@@ -90,8 +90,8 @@ where
 
 #[cfg(test)]
 mod test {
-	use memory_db::{MemoryDB, HashKey};
-	use hash_db::Hasher;
+	use tetsy_memory_db::{MemoryDB, HashKey};
+	use tetsy_hash_db::Hasher;
 	use keccak_hasher::KeccakHasher;
 	use reference_trie::{RefTrieDB, RefSecTrieDBMut, Trie, TrieMut};
 	use crate::DBValue;

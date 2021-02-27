@@ -19,7 +19,7 @@
 #[macro_use] extern crate alloc;
 
 extern crate smallvec;
-extern crate hash_db;
+extern crate tetsy_hash_db;
 extern crate rand;
 #[macro_use]
 extern crate log;
@@ -34,7 +34,7 @@ extern crate trie_standardmap as standardmap;
 #[cfg(test)]
 extern crate trie_root;
 #[cfg(test)]
-extern crate memory_db;
+extern crate tetsy_memory_db;
 #[cfg(test)]
 extern crate keccak_hasher;
 #[cfg(all(feature = "std", test))]
@@ -88,7 +88,7 @@ mod nibble;
 mod node_codec;
 mod trie_codec;
 
-pub use hash_db::{HashDB, HashDBRef, Hasher};
+pub use tetsy_hash_db::{HashDB, HashDBRef, Hasher};
 pub use self::triedb::{TrieDB, TrieDBIterator};
 pub use self::triedbmut::{TrieDBMut, ChildReference};
 pub use self::sectriedbmut::SecTrieDBMut;

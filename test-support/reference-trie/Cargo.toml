@@ -8,7 +8,7 @@ license = "Apache-2.0"
 edition = "2018"
 
 [dependencies]
-hash-db = { path = "../../hash-db" , version = "0.15.2"}
+tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.2"}
 hash256-std-hasher = { path = "../../hash256-std-hasher", version = "0.15.2" }
 keccak-hasher = { path = "../keccak-hasher", version = "0.15.2" }
 trie-db = { path = "../../trie-db", default-features = false, version = "0.19.0" }

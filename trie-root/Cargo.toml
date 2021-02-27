@@ -8,7 +8,7 @@ license = "Apache-2.0"
 categories = [ "no-std" ]
 
 [dependencies]
-hash-db = { path = "../hash-db", default-features = false, version = "0.15.2"}
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2"}
 
 [dev-dependencies]
 hex-literal = "0.1"
@@ -20,5 +20,5 @@ reference-trie = { path = "../test-support/reference-trie", version = "0.19.0" }
 [features]
 default = ["std"]
 std = [
-	"hash-db/std"
+	"tetsy-hash-db/std"
 ]

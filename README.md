@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/paritytech/trie.svg?branch=master)](https://travis-ci.org/paritytech/trie)
+[![Build Status](https://travis-ci.org/tetcoin/trie.svg?branch=master)](https://travis-ci.org/tetcoin/trie)
 
 # Trie
 
@@ -20,11 +20,11 @@ Trie Hash alone is able to be used in `no_std` builds by disabling its (default)
 
 In addition to these, several support crates are provided:
 
-- `hash-db` crate, used to provide `Hasher` (trait for all things that
+- `tetsy-hash-db` crate, used to provide `Hasher` (trait for all things that
    can make cryptographic hashes) and `HashDB` (trait for databases that can have byte
    slices pushed into them and allow for them to be retrieved based on their hash).
    Suitable for `no_std`, though in this case will only provide `Hasher`.
-- `memory-db` crate, contains `MemoryDB`, an implementation of a `HashDB` using only
+- `tetsy-memory-db` crate, contains `MemoryDB`, an implementation of a `HashDB` using only
    in in-memory map.
 - `hash256-std-hasher` crate, an implementation of a `std::hash::Hasher` for 32-byte
    keys that have already been hashed. Useful to build the backing `HashMap` for `MemoryDB`.

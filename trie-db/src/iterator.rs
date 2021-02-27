@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use super::{CError, DBValue, Result, Trie, TrieHash, TrieIterator, TrieLayout};
-use hash_db::{Hasher, EMPTY_PREFIX};
+use tetsy_hash_db::{Hasher, EMPTY_PREFIX};
 use crate::triedb::TrieDB;
 use crate::node::{NodePlan, NodeHandle, OwnedNode};
 use crate::nibble::{NibbleSlice, NibbleVec, nibble_ops};
@@ -353,7 +353,7 @@ impl<'a, L: TrieLayout> Iterator for TrieDBNodeIterator<'a, L> {
 #[cfg(test)]
 mod tests {
 	use crate::DBValue;
-	use hash_db::{HashDB, Hasher};
+	use tetsy_hash_db::{HashDB, Hasher};
 	use keccak_hasher::KeccakHasher;
 	use reference_trie::{
 		RefTrieDB, RefTrieDBMut,
@@ -362,7 +362,7 @@ mod tests {
 	};
 	use reference_trie::{RefTrieDBNoExt, RefTrieDBMutNoExt};
 
-	type MemoryDB = memory_db::MemoryDB<KeccakHasher, memory_db::PrefixedKey<KeccakHasher>, DBValue>;
+	type MemoryDB = tetsy_memory_db::MemoryDB<KeccakHasher, tetsy_memory_db::PrefixedKey<KeccakHasher>, DBValue>;
 
 	fn build_trie_db_with_extension(pairs: &[(Vec<u8>, Vec<u8>)])
 		-> (MemoryDB, <KeccakHasher as Hasher>::Out)

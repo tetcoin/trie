@@ -19,7 +19,7 @@
 #[cfg(not(feature = "std"))]
 extern crate alloc;
 
-use hash_db::{HashDB, HashDBRef, PlainDB, PlainDBRef, Hasher as KeyHasher,
+use tetsy_hash_db::{HashDB, HashDBRef, PlainDB, PlainDBRef, Hasher as KeyHasher,
 	AsHashDB, AsPlainDB, Prefix};
 use parity_util_mem::{MallocSizeOf, MallocSizeOfOps};
 #[cfg(feature = "deprecated")]
@@ -73,9 +73,9 @@ impl<T> MaybeDebug for T {}
 /// # Example
 /// ```rust
 ///
-/// use hash_db::{Hasher, HashDB, EMPTY_PREFIX};
+/// use tetsy_hash_db::{Hasher, HashDB, EMPTY_PREFIX};
 /// use keccak_hasher::KeccakHasher;
-/// use memory_db::{MemoryDB, HashKey};
+/// use tetsy_memory_db::{MemoryDB, HashKey};
 /// fn main() {
 ///   let mut m = MemoryDB::<KeccakHasher, HashKey<_>, Vec<u8>>::default();
 ///   let d = "Hello world!".as_bytes();
@@ -332,13 +332,13 @@ where
 	///
 	/// # Examples
 	/// ```rust
-	/// extern crate hash_db;
+	/// extern crate tetsy_hash_db;
 	/// extern crate keccak_hasher;
-	/// extern crate memory_db;
+	/// extern crate tetsy_memory_db;
 	///
-	/// use hash_db::{Hasher, HashDB, EMPTY_PREFIX};
+	/// use tetsy_hash_db::{Hasher, HashDB, EMPTY_PREFIX};
 	/// use keccak_hasher::KeccakHasher;
-	/// use memory_db::{MemoryDB, HashKey};
+	/// use tetsy_memory_db::{MemoryDB, HashKey};
 	///
 	/// fn main() {
 	///   let mut m = MemoryDB::<KeccakHasher, HashKey<_>, Vec<u8>>::default();
@@ -634,7 +634,7 @@ where
 #[cfg(test)]
 mod tests {
 	use super::{MemoryDB, HashDB, KeyHasher, HashKey};
-	use hash_db::EMPTY_PREFIX;
+	use tetsy_hash_db::EMPTY_PREFIX;
 	use keccak_hasher::KeccakHasher;
 
 	#[test]

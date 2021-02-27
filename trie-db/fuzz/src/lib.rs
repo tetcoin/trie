@@ -13,9 +13,9 @@
 // limitations under the License.
 
 
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 use keccak_hasher::KeccakHasher;
-use memory_db::{HashKey, MemoryDB, PrefixedKey};
+use tetsy_memory_db::{HashKey, MemoryDB, PrefixedKey};
 use reference_trie::{
 	calc_root_no_extension,
 	compare_no_extension_insert_remove,

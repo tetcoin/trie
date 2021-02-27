@@ -20,7 +20,7 @@ use core_::convert::TryInto;
 use core_::marker::PhantomData;
 use core_::ops::Range;
 
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 
 use crate::{
 	CError, ChildReference, nibble::LeftNibbleSlice, nibble_ops::NIBBLE_LENGTH, NibbleSlice, node::{NodeHandle, NodeHandlePlan, NodePlan, OwnedNode}, NodeCodec, Recorder,

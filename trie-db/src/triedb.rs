@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use hash_db::{HashDBRef, Prefix, EMPTY_PREFIX};
+use tetsy_hash_db::{HashDBRef, Prefix, EMPTY_PREFIX};
 use crate::nibble::NibbleSlice;
 use crate::iterator::TrieDBNodeIterator;
 use super::node::{NodeHandle, Node, OwnedNode, decode_hash};
@@ -40,15 +40,15 @@ use alloc::vec::Vec;
 /// ```
 /// extern crate trie_db;
 /// extern crate reference_trie;
-/// extern crate hash_db;
+/// extern crate tetsy_hash_db;
 /// extern crate keccak_hasher;
-/// extern crate memory_db;
+/// extern crate tetsy_memory_db;
 ///
-/// use hash_db::Hasher;
+/// use tetsy_hash_db::Hasher;
 /// use reference_trie::{RefTrieDBMut, RefTrieDB, Trie, TrieMut};
 /// use trie_db::DBValue;
 /// use keccak_hasher::KeccakHasher;
-/// use memory_db::*;
+/// use tetsy_memory_db::*;
 ///
 /// fn main() {
 ///   let mut memdb = MemoryDB::<KeccakHasher, HashKey<_>, _>::default();
@@ -332,7 +332,7 @@ impl<'a, L: TrieLayout> Iterator for TrieDBIterator<'a, L> {
 
 #[cfg(test)]
 mod tests {
-	use memory_db::{MemoryDB, PrefixedKey};
+	use tetsy_memory_db::{MemoryDB, PrefixedKey};
 	use keccak_hasher::KeccakHasher;
 	use crate::DBValue;
 	use reference_trie::{RefTrieDB, RefTrieDBMut, RefLookup, Trie, TrieMut, NibbleSlice};
@@ -679,7 +679,7 @@ mod tests {
         },
     },
 }");
-	
+
 	}
 
 	#[test]

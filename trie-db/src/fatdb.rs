@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use hash_db::{HashDBRef, Hasher};
+use tetsy_hash_db::{HashDBRef, Hasher};
 use super::{Result, DBValue, TrieDB, Trie, TrieDBIterator, TrieItem, TrieIterator, Query,
 	TrieLayout, CError, TrieHash};
 
@@ -129,7 +129,7 @@ where
 
 #[cfg(test)]
 mod test {
-	use memory_db::{MemoryDB, HashKey};
+	use tetsy_memory_db::{MemoryDB, HashKey};
 	use crate::DBValue;
 	use keccak_hasher::KeccakHasher;
 	use reference_trie::{RefFatDBMut, RefFatDB, Trie, TrieMut};

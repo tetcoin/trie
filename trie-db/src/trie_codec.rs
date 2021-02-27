@@ -25,7 +25,7 @@
 //! expected to save roughly (n - 1) hashes in size where n is the number of nodes in the partial
 //! trie.
 
-use hash_db::HashDB;
+use tetsy_hash_db::HashDB;
 use crate::{
 	CError, ChildReference, DBValue, NibbleVec, NodeCodec, Result,
 	TrieHash, TrieError, TrieDB, TrieDBNodeIterator, TrieLayout,
@@ -456,14 +456,14 @@ pub fn decode_compact<L, DB, T>(db: &mut DB, encoded: &[Vec<u8>])
 #[cfg(test)]
 mod tests {
 	use crate::DBValue;
-	use hash_db::{HashDB, Hasher, EMPTY_PREFIX};
+	use tetsy_hash_db::{HashDB, Hasher, EMPTY_PREFIX};
 	use reference_trie::{
 		ExtensionLayout, NoExtensionLayout,
 		Trie, TrieMut, TrieDB, TrieError, TrieDBMut, TrieLayout, Recorder,
 		encode_compact, decode_compact,
 	};
 
-	type MemoryDB<H> = memory_db::MemoryDB<H, memory_db::HashKey<H>, DBValue>;
+	type MemoryDB<H> = tetsy_memory_db::MemoryDB<H, tetsy_memory_db::HashKey<H>, DBValue>;
 
 	fn test_encode_compact<L: TrieLayout>(
 		entries: Vec<(&'static [u8], &'static [u8])>,

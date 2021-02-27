@@ -19,7 +19,7 @@ use core_::iter::Peekable;
 use core_::marker::PhantomData;
 use core_::result::Result;
 
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 
 use crate::{
 	CError, ChildReference, nibble::LeftNibbleSlice, nibble_ops::NIBBLE_LENGTH,

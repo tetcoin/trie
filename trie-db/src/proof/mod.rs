@@ -38,7 +38,7 @@ mod verify;
 
 #[cfg(test)]
 mod tests {
-	use hash_db::Hasher;
+	use tetsy_hash_db::Hasher;
 	use reference_trie::{
 		ExtensionLayout, NoExtensionLayout,
 		proof::{generate_proof, verify_proof, VerifyError}, Trie, TrieDB, TrieDBMut, TrieLayout,
@@ -47,7 +47,7 @@ mod tests {
 
 	use crate::DBValue;
 
-	type MemoryDB<H> = memory_db::MemoryDB<H, memory_db::HashKey<H>, DBValue>;
+	type MemoryDB<H> = tetsy_memory_db::MemoryDB<H, tetsy_memory_db::HashKey<H>, DBValue>;
 
 	fn test_entries() -> Vec<(&'static [u8], &'static [u8])> {
 		vec![

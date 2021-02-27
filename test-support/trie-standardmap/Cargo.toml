@@ -7,4 +7,4 @@ license = "Apache-2.0"
 
 [dependencies]
 keccak-hasher = { path = "../keccak-hasher", version = "0.15.2"}
-hash-db = { path = "../../hash-db" , version = "0.15.2"}
+tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.2"}

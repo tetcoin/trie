@@ -1,5 +1,5 @@
 [package]
-name = "hash-db"
+name = "tetsy-hash-db"
 version = "0.15.2"
 authors = ["Parity Technologies <admin@parity.io>"]
 description = "Trait for hash-keyed databases."

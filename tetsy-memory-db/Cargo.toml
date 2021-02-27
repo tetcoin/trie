@@ -1,16 +1,16 @@
 [package]
-name = "memory-db"
+name = "tetsy-memory-db"
 version = "0.18.1"
 authors = ["Parity Technologies <admin@parity.io>"]
-description = "In-memory implementation of hash-db, useful for tests"
+description = "In-memory implementation of tetsy-hash-db, useful for tests"
 repository = "https://github.com/paritytech/trie"
 license = "Apache-2.0"
 edition = "2018"
 
 [dependencies]
 heapsize = { version = "0.4", optional = true }
-parity-util-mem = { version = "0.3", default-features = false }
-hash-db = { path = "../hash-db", default-features = false, version = "0.15.2"}
+tetsy-util-mem = { version = "0.3", default-features = false }
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2"}
 hashbrown = { version = "0.6.3", default-features = false, features = [ "ahash" ] }
 # There's a compilation error with ahash-0.2.17, which is permitted by the 0.2.11 constraint in hashbrown.
 ahash = "0.2.18"
@@ -22,7 +22,7 @@ criterion = "0.2.8"
 [features]
 default = ["std"]
 std = [
-  "hash-db/std",
+  "tetsy-hash-db/std",
   "parity-util-mem/std",
 ]
 deprecated = [ "heapsize" ]

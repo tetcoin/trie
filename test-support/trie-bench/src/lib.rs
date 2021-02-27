@@ -17,8 +17,8 @@
 use parity_scale_codec::{Encode, Compact};
 use criterion::{Criterion, black_box, Fun};
 use keccak_hasher::KeccakHasher;
-use hash_db::Hasher;
-use memory_db::{MemoryDB, HashKey};
+use tetsy_hash_db::Hasher;
+use tetsy_memory_db::{MemoryDB, HashKey};
 use trie_db::{NodeCodec, TrieDB, TrieDBMut, Trie, TrieMut, TrieLayout, TrieHash};
 use std::default::Default;
 use trie_root::{TrieStream, trie_root};

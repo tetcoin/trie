@@ -901,7 +901,7 @@ impl<H: Hasher> NodeCodec for ReferenceNodeCodecNoExt<H> {
 }
 
 /// Compare trie builder and in memory trie.
-pub fn compare_implementations<X : hash_db::HashDB<KeccakHasher, DBValue> + Eq> (
+pub fn compare_implementations<X : tetsy_hash_db::HashDB<KeccakHasher, DBValue> + Eq> (
 	data: Vec<(Vec<u8>, Vec<u8>)>,
 	mut memdb: X,
 	mut hashdb: X,
@@ -922,7 +922,7 @@ pub fn compare_implementations<X : hash_db::HashDB<KeccakHasher, DBValue> + Eq> 
 	};
 	if root_new != root {
 		{
-			let db : &dyn hash_db::HashDB<_, _> = &hashdb;
+			let db : &dyn tetsy_hash_db::HashDB<_, _> = &hashdb;
 			let t = RefTrieDB::new(&db, &root_new).unwrap();
 			println!("{:?}", t);
 			for a in t.iter().unwrap() {
@@ -930,7 +930,7 @@ pub fn compare_implementations<X : hash_db::HashDB<KeccakHasher, DBValue> + Eq> 
 			}
 		}
 		{
-			let db : &dyn hash_db::HashDB<_, _> = &memdb;
+			let db : &dyn tetsy_hash_db::HashDB<_, _> = &memdb;
 			let t = RefTrieDB::new(&db, &root).unwrap();
 			println!("{:?}", t);
 			for a in t.iter().unwrap() {
@@ -947,7 +947,7 @@ pub fn compare_implementations<X : hash_db::HashDB<KeccakHasher, DBValue> + Eq> 
 /// Compare trie builder and trie root implementations.
 pub fn compare_root(
 	data: Vec<(Vec<u8>, Vec<u8>)>,
-	mut memdb: impl hash_db::HashDB<KeccakHasher, DBValue>,
+	mut memdb: impl tetsy_hash_db::HashDB<KeccakHasher, DBValue>,
 ) {
 	let root_new = {
 		let mut cb = TrieRoot::<KeccakHasher, _>::default();
@@ -1033,7 +1033,7 @@ pub fn calc_root_build<I, A, B, DB>(
 		I: IntoIterator<Item = (A, B)>,
 		A: AsRef<[u8]> + Ord + fmt::Debug,
 		B: AsRef<[u8]> + fmt::Debug,
-		DB: hash_db::HashDB<KeccakHasher, DBValue>
+		DB: tetsy_hash_db::HashDB<KeccakHasher, DBValue>
 {
 	let mut cb = TrieBuilder::new(hashdb);
 	trie_visit::<ExtensionLayout, _, _, _, _>(data.into_iter(), &mut cb);
@@ -1050,7 +1050,7 @@ pub fn calc_root_build_no_extension<I, A, B, DB>(
 		I: IntoIterator<Item = (A, B)>,
 		A: AsRef<[u8]> + Ord + fmt::Debug,
 		B: AsRef<[u8]> + fmt::Debug,
-		DB: hash_db::HashDB<KeccakHasher, DBValue>
+		DB: tetsy_hash_db::HashDB<KeccakHasher, DBValue>
 {
 	let mut cb = TrieBuilder::new(hashdb);
 	trie_db::trie_visit::<NoExtensionLayout, _, _, _, _>(data.into_iter(), &mut cb);
@@ -1061,8 +1061,8 @@ pub fn calc_root_build_no_extension<I, A, B, DB>(
 /// This uses the variant without extension nodes.
 pub fn compare_implementations_no_extension(
 	data: Vec<(Vec<u8>, Vec<u8>)>,
-	mut memdb: impl hash_db::HashDB<KeccakHasher, DBValue>,
-	mut hashdb: impl hash_db::HashDB<KeccakHasher, DBValue>,
+	mut memdb: impl tetsy_hash_db::HashDB<KeccakHasher, DBValue>,
+	mut hashdb: impl tetsy_hash_db::HashDB<KeccakHasher, DBValue>,
 ) {
 	let root_new = {
 		let mut cb = TrieBuilder::new(&mut hashdb);
@@ -1077,10 +1077,10 @@ pub fn compare_implementations_no_extension(
 		}
 		t.root().clone()
 	};
-	
+
 	if root != root_new {
 		{
-			let db : &dyn hash_db::HashDB<_, _> = &memdb;
+			let db : &dyn tetsy_hash_db::HashDB<_, _> = &memdb;
 			let t = RefTrieDBNoExt::new(&db, &root).unwrap();
 			println!("{:?}", t);
 			for a in t.iter().unwrap() {
@@ -1088,7 +1088,7 @@ pub fn compare_implementations_no_extension(
 			}
 		}
 		{
-			let db : &dyn hash_db::HashDB<_, _> = &hashdb;
+			let db : &dyn tetsy_hash_db::HashDB<_, _> = &hashdb;
 			let t = RefTrieDBNoExt::new(&db, &root_new).unwrap();
 			println!("{:?}", t);
 			for a in t.iter().unwrap() {
@@ -1104,8 +1104,8 @@ pub fn compare_implementations_no_extension(
 /// ordering before running when trie_build expect correct ordering).
 pub fn compare_implementations_no_extension_unordered(
 	data: Vec<(Vec<u8>, Vec<u8>)>,
-	mut memdb: impl hash_db::HashDB<KeccakHasher, DBValue>,
-	mut hashdb: impl hash_db::HashDB<KeccakHasher, DBValue>,
+	mut memdb: impl tetsy_hash_db::HashDB<KeccakHasher, DBValue>,
+	mut hashdb: impl tetsy_hash_db::HashDB<KeccakHasher, DBValue>,
 ) {
 	let mut b_map = std::collections::btree_map::BTreeMap::new();
 	let root = {
@@ -1125,7 +1125,7 @@ pub fn compare_implementations_no_extension_unordered(
 
 	if root != root_new {
 		{
-			let db : &dyn hash_db::HashDB<_, _> = &memdb;
+			let db : &dyn tetsy_hash_db::HashDB<_, _> = &memdb;
 			let t = RefTrieDBNoExt::new(&db, &root).unwrap();
 			println!("{:?}", t);
 			for a in t.iter().unwrap() {
@@ -1133,7 +1133,7 @@ pub fn compare_implementations_no_extension_unordered(
 			}
 		}
 		{
-			let db : &dyn hash_db::HashDB<_, _> = &hashdb;
+			let db : &dyn tetsy_hash_db::HashDB<_, _> = &hashdb;
 			let t = RefTrieDBNoExt::new(&db, &root_new).unwrap();
 			println!("{:?}", t);
 			for a in t.iter().unwrap() {
@@ -1149,7 +1149,7 @@ pub fn compare_implementations_no_extension_unordered(
 /// its input test data.
 pub fn compare_no_extension_insert_remove(
 	data: Vec<(bool, Vec<u8>, Vec<u8>)>,
-	mut memdb: impl hash_db::HashDB<KeccakHasher, DBValue>,
+	mut memdb: impl tetsy_hash_db::HashDB<KeccakHasher, DBValue>,
 ) {
 	let mut data2 = std::collections::BTreeMap::new();
 	let mut root = Default::default();
