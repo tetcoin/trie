@@ -333,7 +333,7 @@ pub fn generate_proof<'a, T, L, I, K>(trie: &T, keys: I)
 					assert_eq!(
 						value,
 						expected_value.as_ref().map(|v| v.as_ref()),
-						"expected_value is found using `trie_db::Lookup`; \
+						"expected_value is found using `tetsy_trie_db::Lookup`; \
 						value is found by traversing the same nodes recorded during the lookup \
 						using the same logic; \
 						thus the values found must be equal"

@@ -38,7 +38,7 @@ use alloc::vec::Vec;
 ///
 /// # Example
 /// ```
-/// extern crate trie_db;
+/// extern crate tetsy_trie_db;
 /// extern crate reference_trie;
 /// extern crate tetsy_hash_db;
 /// extern crate keccak_hasher;
@@ -46,7 +46,7 @@ use alloc::vec::Vec;
 ///
 /// use tetsy_hash_db::Hasher;
 /// use reference_trie::{RefTrieDBMut, RefTrieDB, Trie, TrieMut};
-/// use trie_db::DBValue;
+/// use tetsy_trie_db::DBValue;
 /// use keccak_hasher::KeccakHasher;
 /// use tetsy_memory_db::*;
 ///

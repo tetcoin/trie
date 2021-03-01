@@ -1,5 +1,5 @@
 [package]
-name = "trie-db"
+name = "tetsy-trie-db"
 version = "0.19.2"
 authors = ["Parity Technologies <admin@parity.io>"]
 description = "Merkle-Patricia Trie generic over key hasher and node encoding"
@@ -16,7 +16,7 @@ rustc-hex = { version = "2.1.0", default-features = false, optional = true }
 
 [dev-dependencies]
 env_logger = "0.6"
-tetsy-memory-db = { path = "../tetsy-memory-db", version = "0.18.0" }
+tetsy-memory-db = { path = "../tetsy-memory-db", version = "0.18.1" }
 trie-root = { path = "../trie-root", version = "0.15.2"}
 trie-standardmap = { path = "../test-support/trie-standardmap", version = "0.15.2" }
 keccak-hasher = { path = "../test-support/keccak-hasher", version = "0.15.2" }

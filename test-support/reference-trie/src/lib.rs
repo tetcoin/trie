@@ -21,7 +21,7 @@ use std::ops::Range;
 use parity_scale_codec::{Decode, Input, Output, Encode, Compact, Error as CodecError};
 use trie_root::Hasher;
 
-use trie_db::{
+use tetsy_trie_db::{
 	node::{NibbleSlicePlan, NodePlan, NodeHandlePlan},
 	triedbmut::ChildReference,
 	DBValue,
@@ -33,7 +33,7 @@ use trie_db::{
 use std::borrow::Borrow;
 use keccak_hasher::KeccakHasher;
 
-pub use trie_db::{
+pub use tetsy_trie_db::{
 	decode_compact, encode_compact,
 	nibble_ops, NibbleSlice, NibbleVec, NodeCodec, proof, Record, Recorder,
 	Trie, TrieConfiguration, TrieDB, TrieDBMut, TrieDBNodeIterator, TrieError, TrieIterator,
@@ -41,7 +41,7 @@ pub use trie_db::{
 };
 pub use trie_root::TrieStream;
 pub mod node {
-	pub use trie_db::node::Node;
+	pub use tetsy_trie_db::node::Node;
 }
 
 /// Trie layout using extension nodes.
@@ -98,16 +98,16 @@ impl Bitmap {
 	}
 }
 
-pub type RefTrieDB<'a> = trie_db::TrieDB<'a, ExtensionLayout>;
-pub type RefTrieDBNoExt<'a> = trie_db::TrieDB<'a, NoExtensionLayout>;
-pub type RefTrieDBMut<'a> = trie_db::TrieDBMut<'a, ExtensionLayout>;
-pub type RefTrieDBMutNoExt<'a> = trie_db::TrieDBMut<'a, NoExtensionLayout>;
-pub type RefFatDB<'a> = trie_db::FatDB<'a, ExtensionLayout>;
-pub type RefFatDBMut<'a> = trie_db::FatDBMut<'a, ExtensionLayout>;
-pub type RefSecTrieDB<'a> = trie_db::SecTrieDB<'a, ExtensionLayout>;
-pub type RefSecTrieDBMut<'a> = trie_db::SecTrieDBMut<'a, ExtensionLayout>;
-pub type RefLookup<'a, Q> = trie_db::Lookup<'a, ExtensionLayout, Q>;
-pub type RefLookupNoExt<'a, Q> = trie_db::Lookup<'a, NoExtensionLayout, Q>;
+pub type RefTrieDB<'a> = tetsy_trie_db::TrieDB<'a, ExtensionLayout>;
+pub type RefTrieDBNoExt<'a> = tetsy_trie_db::TrieDB<'a, NoExtensionLayout>;
+pub type RefTrieDBMut<'a> = tetsy_trie_db::TrieDBMut<'a, ExtensionLayout>;
+pub type RefTrieDBMutNoExt<'a> = tetsy_trie_db::TrieDBMut<'a, NoExtensionLayout>;
+pub type RefFatDB<'a> = tetsy_trie_db::FatDB<'a, ExtensionLayout>;
+pub type RefFatDBMut<'a> = tetsy_trie_db::FatDBMut<'a, ExtensionLayout>;
+pub type RefSecTrieDB<'a> = tetsy_trie_db::SecTrieDB<'a, ExtensionLayout>;
+pub type RefSecTrieDBMut<'a> = tetsy_trie_db::SecTrieDBMut<'a, ExtensionLayout>;
+pub type RefLookup<'a, Q> = tetsy_trie_db::Lookup<'a, ExtensionLayout, Q>;
+pub type RefLookupNoExt<'a, Q> = tetsy_trie_db::Lookup<'a, NoExtensionLayout, Q>;
 
 pub fn reference_trie_root<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
 	I: IntoIterator<Item = (A, B)>,
@@ -971,7 +971,7 @@ pub fn compare_unhashed(
 	data: Vec<(Vec<u8>, Vec<u8>)>,
 ) {
 	let root_new = {
-		let mut cb = trie_db::TrieRootUnhashed::<KeccakHasher>::default();
+		let mut cb = tetsy_trie_db::TrieRootUnhashed::<KeccakHasher>::default();
 		trie_visit::<ExtensionLayout, _, _, _, _>(data.clone().into_iter(), &mut cb);
 		cb.root.unwrap_or(Default::default())
 	};
@@ -986,7 +986,7 @@ pub fn compare_unhashed_no_extension(
 	data: Vec<(Vec<u8>, Vec<u8>)>,
 ) {
 	let root_new = {
-		let mut cb = trie_db::TrieRootUnhashed::<KeccakHasher>::default();
+		let mut cb = tetsy_trie_db::TrieRootUnhashed::<KeccakHasher>::default();
 		trie_visit::<NoExtensionLayout, _, _, _, _>(data.clone().into_iter(), &mut cb);
 		cb.root.unwrap_or(Default::default())
 	};
@@ -1020,7 +1020,7 @@ pub fn calc_root_no_extension<I, A, B>(
 		B: AsRef<[u8]> + fmt::Debug,
 {
 	let mut cb = TrieRoot::<KeccakHasher, _>::default();
-	trie_db::trie_visit::<NoExtensionLayout, _, _, _, _>(data.into_iter(), &mut cb);
+	tetsy_trie_db::trie_visit::<NoExtensionLayout, _, _, _, _>(data.into_iter(), &mut cb);
 	cb.root.unwrap_or(Default::default())
 }
 
@@ -1053,7 +1053,7 @@ pub fn calc_root_build_no_extension<I, A, B, DB>(
 		DB: tetsy_hash_db::HashDB<KeccakHasher, DBValue>
 {
 	let mut cb = TrieBuilder::new(hashdb);
-	trie_db::trie_visit::<NoExtensionLayout, _, _, _, _>(data.into_iter(), &mut cb);
+	tetsy_trie_db::trie_visit::<NoExtensionLayout, _, _, _, _>(data.into_iter(), &mut cb);
 	cb.root.unwrap_or(Default::default())
 }
 
@@ -1191,7 +1191,7 @@ pub fn compare_no_extension_insert_remove(
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use trie_db::node::Node;
+	use tetsy_trie_db::node::Node;
 
 	#[test]
 	fn test_encoding_simple_trie() {

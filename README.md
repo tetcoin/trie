@@ -7,7 +7,7 @@ provided under the Apache2 license.
 
 The implementation comes in two formats:
 
-- Trie DB (`trie-db` crate) which can be combined with a backend database to provide
+- Trie DB (`tetsy-trie-db` crate) which can be combined with a backend database to provide
    a persistent trie structure whose contents can be modified and whose root hash
    is recalculated efficiently.
 - Trie Hash (`trie-hash` crate) which provides a closed-form function that accepts a

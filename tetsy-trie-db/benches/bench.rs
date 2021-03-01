@@ -16,12 +16,12 @@
 extern crate criterion;
 extern crate tetsy_memory_db;
 extern crate rand;
-extern crate trie_db;
+extern crate tetsy_trie_db;
 extern crate trie_standardmap;
 
 use criterion::{Bencher, black_box, Criterion};
 
-use trie_db::{NibbleSlice, proof::{generate_proof, verify_proof}, Trie};
+use tetsy_trie_db::{NibbleSlice, proof::{generate_proof, verify_proof}, Trie};
 use trie_standardmap::{Alphabet, StandardMap, ValueMode};
 
 criterion_group!(benches,
@@ -361,7 +361,7 @@ fn trie_mut_ref_root_b(c: &mut Criterion) {
 
 
 fn trie_mut_a(c: &mut Criterion) {
-	use trie_db::TrieMut;
+	use tetsy_trie_db::TrieMut;
 	use tetsy_memory_db::HashKey;
 	let data : Vec<Vec<(Vec<u8>, Vec<u8>)>> = vec![
 		input_unsorted(29, 204800 / 2, 512 * 2),
@@ -384,7 +384,7 @@ fn trie_mut_a(c: &mut Criterion) {
 }
 
 fn trie_mut_b(c: &mut Criterion) {
-	use trie_db::TrieMut;
+	use tetsy_trie_db::TrieMut;
 	use tetsy_memory_db::HashKey;
 	let data : Vec<Vec<(Vec<u8>, Vec<u8>)>> = vec![
 		//input_unsorted(29, 204800, 512),
@@ -461,7 +461,7 @@ fn trie_iteration(c: &mut Criterion) {
 	c.bench_function("trie_iteration", move |b: &mut Bencher|
 		b.iter(|| {
 			let trie = reference_trie::RefTrieDB::new(&mdb, &root).unwrap();
-			let mut iter = trie_db::TrieDBNodeIterator::new(&trie).unwrap();
+			let mut iter = tetsy_trie_db::TrieDBNodeIterator::new(&trie).unwrap();
 			assert!(iter.all(|result| result.is_ok()));
 		})
 	);
