@@ -17,7 +17,7 @@ tetsy-hash256-std-hasher = { path = "../../tetsy-hash256-std-hasher", version = 
 tetsy-keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.3" }
 tetsy-trie-db = { path = "../../tetsy-trie-db", default-features = false, version = "0.22.0" }
 tetsy-trie-root = { path = "../../tetsy-trie-root", default-features = false, version = "0.16.0-alpha" }
-tetsy-scale-codec = { version = "1.0.3", features = ["derive"] }
+tetsy-scale-codec = { version = "1.3.0", features = ["derive"] }
 
 [dev-dependencies]
 tetsy-trie-bench = { path = "../tetsy-trie-bench", version = "0.26.0" }
