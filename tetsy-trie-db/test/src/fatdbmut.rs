@@ -16,7 +16,7 @@ use tetsy_memory_db::{MemoryDB, HashKey};
 use tetsy_hash_db::{Hasher, EMPTY_PREFIX};
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_reference_trie::{RefFatDBMut, RefTrieDB};
-use trie_db::{Trie, TrieMut};
+use tetsy_trie_db::{Trie, TrieMut};
 
 #[test]
 fn fatdbmut_to_trie() {

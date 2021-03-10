@@ -18,7 +18,7 @@ use tetsy_memory_db::{MemoryDB, HashKey};
 use tetsy_hash_db::Hasher;
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_reference_trie::{RefTrieDB, RefTrieDBMut};
-use trie_db::{Trie, TrieMut, Recorder, Record};
+use tetsy_trie_db::{Trie, TrieMut, Recorder, Record};
 
 #[test]
 fn basic_recorder() {

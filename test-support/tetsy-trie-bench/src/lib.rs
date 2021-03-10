@@ -19,7 +19,7 @@ use criterion::{Criterion, black_box, Fun};
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_hash_db::Hasher;
 use tetsy_memory_db::{MemoryDB, HashKey};
-use trie_db::{NodeCodec, TrieDB, TrieDBMut, Trie, TrieMut, TrieLayout, TrieHash};
+use tetsy_trie_db::{NodeCodec, TrieDB, TrieDBMut, Trie, TrieMut, TrieLayout, TrieHash};
 use std::default::Default;
 use tetsy_trie_root::{TrieStream, trie_root};
 use tetsy_trie_standardmap::*;
@@ -43,7 +43,7 @@ where
 {
 	let funs = vec![
 		Fun::new("Closed", |b, d: &TrieInsertionList| b.iter(&mut ||{
-			tetsy_trie_root::<L::Hash, S, _, _, _>(d.0.clone())
+			trie_root::<L::Hash, S, _, _, _>(d.0.clone())
 		})),
 		Fun::new("Fill", |b, d: &TrieInsertionList| b.iter(&mut ||{
 			let mut memdb = MemoryDB::<_, HashKey<L::Hash>, _>::new(&L::Codec::empty_node()[..]);

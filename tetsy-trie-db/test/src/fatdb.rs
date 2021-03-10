@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use tetsy_memory_db::{MemoryDB, HashKey};
-use trie_db::{DBValue, Trie, TrieMut};
+use tetsy_trie_db::{DBValue, Trie, TrieMut};
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_reference_trie::{RefFatDBMut, RefFatDB};
 

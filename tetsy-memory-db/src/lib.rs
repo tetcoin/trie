@@ -655,8 +655,8 @@ where
 	KF: KeyFunction<H> + Send + Sync,
 	M: MemTracker<T> + Send + Sync,
 {
-	fn as_tetsy_hash_db(&self) -> &dyn HashDB<H, T> { self }
-	fn as_tetsy_hash_db_mut(&mut self) -> &mut dyn HashDB<H, T> { self }
+	fn as_hash_db(&self) -> &dyn HashDB<H, T> { self }
+	fn as_hash_db_mut(&mut self) -> &mut dyn HashDB<H, T> { self }
 }
 
 #[cfg(test)]

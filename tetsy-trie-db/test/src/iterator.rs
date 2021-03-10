@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use trie_db::{
+use tetsy_trie_db::{
 	DBValue, TrieError, TrieMut,
 	TrieIterator, TrieDBNodeIterator, NibbleSlice, NibbleVec,
 	node::Node,

@@ -17,7 +17,7 @@ use tetsy_reference_trie::{
 	ExtensionLayout, NoExtensionLayout,
 };
 
-use trie_db::{
+use tetsy_trie_db::{
 	DBValue, TrieDB, TrieDBMut, TrieLayout, TrieMut,
 	proof::{generate_proof, verify_proof, VerifyError}, Trie,
 };
