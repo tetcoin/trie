@@ -5,9 +5,9 @@ version = "0.15.2"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 license = "Apache-2.0"
 edition = "2018"
-keywords = [ "tetcoin", "tetcore" ]
+keywords = [ "tetcoin", "tetcore", "vapory" ]
 categories = [ "cryptography::cryptocurrencies" ]
-homepage = "https://github.com/tetcoin/trie"
+homepage = "https://core.tetcoin.org"
 repository = "https://github.com/tetcoin/trie.git"
 documentation = "https://docs.rs/tetsy-trie-standardmap"
 
