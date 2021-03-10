@@ -13,7 +13,7 @@ documentation = "https://docs.rs/tetsy-keccak-hasher"
 
 [dependencies]
 tiny-keccak = { version = "2.0.2", features = ["keccak"] }
-tetsy-hash-db = { path = "../../tetsy-hash-db", default-features = false, version = "0.15.2-alpha" }
+tetsy-hash-db = { path = "../../tetsy-hash-db", default-features = false, version = "0.15.2-beta" }
 tetsy-hash256-std-hasher = { path = "../../tetsy-hash256-std-hasher", version = "0.15.2-alpha" }
 
 [features]

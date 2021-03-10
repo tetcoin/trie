@@ -12,7 +12,7 @@ repository = "https://github.com/tetcoin/trie.git"
 documentation = "https://docs.rs/tetsy-trie-root"
 
 [dependencies]
-tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2-alpha" }
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2-beta" }
 
 [features]
 default = ["std"]

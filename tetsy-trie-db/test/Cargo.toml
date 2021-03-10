@@ -13,7 +13,7 @@ harness = false
 
 [dependencies]
 tetsy-trie-db = { path = "..", version = "0.22.1"}
-tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2-alpha"}
+tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2-beta"}
 rustc-hex = { version = "2.1.0" }
 tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.25.0" }
 rand = { version = "0.7", default-features = false, features = ["small_rng"] }

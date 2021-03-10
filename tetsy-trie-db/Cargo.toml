@@ -14,7 +14,7 @@ documentation = "https://docs.rs/tetsy-trie-db"
 [dependencies]
 log = "0.4"
 smallvec = "1.0.0"
-tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2-alpha"}
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2-beta"}
 hashbrown = { version = "0.9.1", default-features = false, features = ["ahash"] }
 rustc-hex = { version = "2.1.0", default-features = false, optional = true }
 

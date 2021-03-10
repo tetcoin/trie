@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-hash-db"
-version = "0.15.2-alpha"
+version = "0.15.2-beta"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "Tetsy trait for hash-keyed databases."
 license = "Apache-2.0"

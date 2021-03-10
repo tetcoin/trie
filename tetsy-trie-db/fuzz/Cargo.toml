@@ -9,7 +9,7 @@ edition = "2018"
 cargo-fuzz = true
 
 [dependencies]
-tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2-alpha" }
+tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2-beta" }
 tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.21.0" }
 tetsy-reference-trie = { path = "../../test-support/tetsy-reference-trie", version = "0.21.0" }
 tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version = "0.15.2" }
