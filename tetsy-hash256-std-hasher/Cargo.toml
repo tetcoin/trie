@@ -1,0 +1,26 @@
+[package]
+name = "tetsy-hash256-std-hasher"
+description = "Tetsy standard library hasher for 256-bit prehashed keys."
+version = "0.15.2"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+license = "Apache-2.0"
+edition = "2018"
+keywords = [ "tetcoin", "tetcore" ]
+categories = [ "no-std", "cryptography::cryptocurrencies" ]
+homepage = "https://github.com/tetcoin/trie"
+repository = "https://github.com/tetcoin/trie.git"
+documentation = "https://docs.rs/tetsy-hash256-std-hasher"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[dependencies]
+crunchy = "0.2.1"
+
+[dev-dependencies]
+criterion = "0.3.3"
+
+[features]
+default = ["std"]
+std = []

@@ -1,0 +1,23 @@
+[package]
+name = "tetsy-keccak-hasher"
+version = "0.15.3"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "Tetsy Keccak-256 implementation of the Hasher trait"
+license = "Apache-2.0"
+edition = "2018"
+keywords = [ "tetcoin", "tetcore" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://github.com/tetcoin/trie"
+repository = "https://github.com/tetcoin/trie.git"
+documentation = "https://docs.rs/tetsy-keccak-hasher"
+
+[dependencies]
+tiny-keccak = { version = "2.0.2", features = ["keccak"] }
+tetsy-hash-db = { path = "../../tetsy-hash-db", default-features = false, version = "0.15.2" }
+tetsy-hash256-std-hasher = { path = "../../tetsy-hash256-std-hasher", version = "0.15.2" }
+
+[features]
+default = ["std"]
+std = [
+  "tetsy-hash-db/std",
+]

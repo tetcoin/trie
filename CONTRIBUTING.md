@@ -4,9 +4,7 @@
 reports, pull requests, and feedback. This document gives some guidance if you
 are thinking of helping us.
 
-Please reach out here in a GitHub issue or in the parity channel on [gitter] if we can do anything to help you contribute.
-
-[gitter]: https://gitter.im/paritytech/parity
+Please reach out here in a GitHub issue or on [twitter]: https://twitter.com/tetcoin if we can do anything to help you contribute.
 
 ## Submitting bug reports and feature requests
 
@@ -40,13 +38,13 @@ When making a new release make sure to follow these steps:
 After the PR is merged into master:
 * `cargo publish` on the latest master (try with `--dry-run` first)
 * Add a git tag in format `<crate-name>-v<version>`,
-e.g. `git tag trie-db-v0.2.2` and push it with `git push origin trie-db-v0.2.2`
+e.g. `git tag tetsy-trie-db-v0.2.2` and push it with `git push origin tetsy-trie-db-v0.2.2`
 
 ## Conduct
 
-We follow [Substrate Code of Conduct].
+We follow [Tetcore Code of Conduct].
 
-[Substrate Code of Conduct]: https://github.com/paritytech/substrate/blob/master/CODE_OF_CONDUCT.adoc
+[Tetcore Code of Conduct]: https://github.com/tetcoin/tetcore/blob/master/CODE_OF_CONDUCT.adoc
 
 ## Attribution
 

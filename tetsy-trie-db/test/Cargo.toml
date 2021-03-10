@@ -1,0 +1,27 @@
+[package]
+name = "tetsy-trie-db-test"
+version = "0.22.1"
+authors = ["Parity Technologies <admin@parity.io>"]
+description = "Tests for tetsy-trie-db crate"
+repository = "https://github.com/tetcoin/trie"
+license = "Apache-2.0"
+edition = "2018"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[dependencies]
+tetsy-trie-db = { path = "..", version = "0.22.1"}
+tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2"}
+rustc-hex = { version = "2.1.0" }
+tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.25.0" }
+rand = { version = "0.7", default-features = false, features = ["small_rng"] }
+tetsy-tetsy-trie-root = { path = "../../tetsy-trie-root", version = "0.16.0"}
+tetsy-trie-standardmap = { path = "../../test-support/tetsy-trie-standardmap", version = "0.15.2" }
+tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version = "0.15.2" }
+tetsy-reference-trie = { path = "../../test-support/tetsy-reference-trie", version = "0.22.0" }
+hex-literal = "0.3"
+criterion = "0.3"
+env_logger = "0.8"
+log = "0.4"
