@@ -9,9 +9,9 @@ categories = [ ]
 edition = "2018"
 
 [dependencies]
-tetsy-trie-root = { path = "..", version = "0.16.0" }
-tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2" }
+tetsy-trie-root = { path = "..", version = "0.16.0-alpha" }
+tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2-alpha" }
 hex-literal = "0.3"
 tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version = "0.15.2" }
-tetsy-trie-standardmap = { path = "../../test-support/tetsy-trie-standardmap", version = "0.15.2" }
+tetsy-trie-standardmap = { path = "../../test-support/tetsy-trie-standardmap", version = "0.15.2-alpha" }
 tetsy-reference-trie = { path = "../../test-support/tetsy-reference-trie", version = "0.22.0" }

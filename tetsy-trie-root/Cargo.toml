@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-trie-root"
-version = "0.16.0"
+version = "0.16.0-alpha"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "In-memory patricia trie operations for tetsy"
 license = "Apache-2.0"
@@ -12,7 +12,7 @@ repository = "https://github.com/tetcoin/trie.git"
 documentation = "https://docs.rs/tetsy-trie-root"
 
 [dependencies]
-tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2" }
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2-alpha" }
 
 [features]
 default = ["std"]

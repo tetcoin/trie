@@ -13,7 +13,7 @@ documentation = "https://docs.rs/tetsy-memory-db"
 
 [dependencies]
 tetsy-util-mem = { version = "0.8.0", default-features = false, features = ["hashbrown"] }
-tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2"}
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.2-alpha"}
 hashbrown = { version = "0.9.1", default-features = false, features = [ "ahash" ] }
 
 [dev-dependencies]
