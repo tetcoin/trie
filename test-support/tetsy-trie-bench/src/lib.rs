@@ -21,7 +21,7 @@ use tetsy_hash_db::Hasher;
 use tetsy_memory_db::{MemoryDB, HashKey};
 use tetsy_trie_db::{NodeCodec, TrieDB, TrieDBMut, Trie, TrieMut, TrieLayout, TrieHash};
 use std::default::Default;
-use tetsy_trie_root::{TrieStream, trie_root};
+use tetsy_trie_root::{TrieStream, tetsy_trie_root};
 use tetsy_trie_standardmap::*;
 
 struct TrieInsertionList(Vec<(Vec<u8>, Vec<u8>)>, );
