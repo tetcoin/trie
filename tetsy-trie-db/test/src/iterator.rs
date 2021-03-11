@@ -18,7 +18,7 @@ use trie_db::{
 	node::Node,
 };
 use hex_literal::hex;
-use hash_db::{HashDB, Hasher};
+use tetsy_hash_db::{HashDB, Hasher};
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_reference_trie::{
 	RefTrieDB, RefTrieDBMut,

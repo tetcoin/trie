@@ -17,7 +17,7 @@
 //! implementation.
 //! See `trie_visit` function.
 
-use hash_db::{Hasher, HashDB, Prefix};
+use tetsy_hash_db::{Hasher, HashDB, Prefix};
 use crate::rstd::{cmp::max, marker::PhantomData, vec::Vec};
 use crate::triedbmut::{ChildReference};
 use crate::nibble::NibbleSlice;
@@ -304,7 +304,7 @@ pub fn trie_visit<T, I, A, B, F>(input: I, callback: &mut F)
 		}
 	} else {
 		// nothing null root corner case
-		callback.process(hash_db::EMPTY_PREFIX, T::Codec::empty_node().to_vec(), true);
+		callback.process(tetsy_hash_db::EMPTY_PREFIX, T::Codec::empty_node().to_vec(), true);
 	}
 }
 
@@ -316,11 +316,11 @@ pub trait ProcessEncodedNode<HO> {
 	/// Note that the returned value can change depending on implementation,
 	/// but usually it should be the Hash of encoded node.
 	/// This is not something direcly related to encoding but is here for
-	/// optimisation purpose (builder hash_db does return this value).
+	/// optimisation purpose (builder tetsy_hash_db does return this value).
 	fn process(&mut self, prefix: Prefix, encoded_node: Vec<u8>, is_root: bool) -> ChildReference<HO>;
 }
 
-/// Get trie root and insert visited node in a hash_db.
+/// Get trie root and insert visited node in a tetsy_hash_db.
 /// As for all `ProcessEncodedNode` implementation, it
 /// is only for full trie parsing (not existing trie).
 pub struct TrieBuilder<'a, H, HO, V, DB> {

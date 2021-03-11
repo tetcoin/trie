@@ -19,7 +19,7 @@ use crate::{
 	CError, ChildReference, nibble::LeftNibbleSlice, nibble_ops::NIBBLE_LENGTH,
 	node::{Node, NodeHandle}, NodeCodec, TrieHash, TrieLayout,
 };
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 
 
 /// Errors that may occur during proof verification. Most of the errors types simply indicate that

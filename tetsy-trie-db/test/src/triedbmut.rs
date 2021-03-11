@@ -17,7 +17,7 @@ use tetsy_trie_standardmap::*;
 use log::debug;
 use trie_db::{DBValue, TrieMut, NodeCodec,};
 use memory_db::{MemoryDB, PrefixedKey};
-use hash_db::{Hasher, HashDB};
+use tetsy_hash_db::{Hasher, HashDB};
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_reference_trie::{RefTrieDBMutNoExt, RefTrieDBMutAllowEmpty, RefTrieDBMut,
 	ReferenceNodeCodec, tetsy_reference_trie_root, tetsy_reference_trie_root_no_extension};

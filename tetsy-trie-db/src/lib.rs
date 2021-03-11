@@ -37,7 +37,7 @@ mod rstd {
 #[cfg(feature = "std")]
 use self::rstd::{fmt, Error};
 
-use hash_db::MaybeDebug;
+use tetsy_hash_db::MaybeDebug;
 use self::rstd::{boxed::Box, vec::Vec};
 
 pub mod node;
@@ -57,7 +57,7 @@ mod nibble;
 mod node_codec;
 mod trie_codec;
 
-pub use hash_db::{HashDB, HashDBRef, Hasher};
+pub use tetsy_hash_db::{HashDB, HashDBRef, Hasher};
 pub use self::triedb::{TrieDB, TrieDBIterator};
 pub use self::triedbmut::{TrieDBMut, ChildReference};
 pub use self::sectriedbmut::SecTrieDBMut;

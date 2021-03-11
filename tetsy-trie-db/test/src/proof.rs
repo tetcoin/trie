@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 use tetsy_reference_trie::{
 	ExtensionLayout, NoExtensionLayout,
 };

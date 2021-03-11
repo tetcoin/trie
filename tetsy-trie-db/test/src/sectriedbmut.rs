@@ -14,7 +14,7 @@
 
 
 use memory_db::{MemoryDB, HashKey};
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_reference_trie::{RefTrieDB, RefSecTrieDBMut};
 use trie_db::{DBValue, Trie, TrieMut};

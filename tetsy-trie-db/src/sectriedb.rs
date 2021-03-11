@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use hash_db::{HashDBRef, Hasher};
+use tetsy_hash_db::{HashDBRef, Hasher};
 use crate::rstd::boxed::Box;
 use super::triedb::TrieDB;
 use super::{Result, DBValue, Trie, TrieItem, TrieIterator, Query, TrieLayout, CError, TrieHash};

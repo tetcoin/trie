@@ -19,7 +19,7 @@ use super::{Result, TrieError, TrieMut, TrieLayout, TrieHash, CError};
 use super::lookup::Lookup;
 use super::node::{NodeHandle as EncodedNodeHandle, Node as EncodedNode, decode_hash};
 
-use hash_db::{HashDB, Hasher, Prefix, EMPTY_PREFIX};
+use tetsy_hash_db::{HashDB, Hasher, Prefix, EMPTY_PREFIX};
 use hashbrown::HashSet;
 
 use crate::node_codec::NodeCodec;
@@ -394,7 +394,7 @@ impl<'a, H> Index<&'a StorageHandle> for NodeStorage<H> {
 ///
 /// # Example
 /// ```ignore
-/// use hash_db::Hasher;
+/// use tetsy_hash_db::Hasher;
 /// use tetsy_reference_trie::{RefTrieDBMut, TrieMut};
 /// use trie_db::DBValue;
 /// use tetsy_keccak_hasher::KeccakHasher;

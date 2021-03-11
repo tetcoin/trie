@@ -15,7 +15,7 @@
 //! Trie query recorder.
 
 use memory_db::{MemoryDB, HashKey};
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_reference_trie::{RefTrieDB, RefTrieDBMut};
 use trie_db::{Trie, TrieMut, Recorder, Record};

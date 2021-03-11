@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use super::{CError, DBValue, Result, Trie, TrieHash, TrieIterator, TrieLayout};
-use hash_db::{Hasher, EMPTY_PREFIX};
+use tetsy_hash_db::{Hasher, EMPTY_PREFIX};
 use crate::triedb::TrieDB;
 use crate::node::{NodePlan, NodeHandle, OwnedNode};
 use crate::nibble::{NibbleSlice, NibbleVec, nibble_ops};

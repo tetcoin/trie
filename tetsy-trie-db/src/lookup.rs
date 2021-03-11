@@ -14,7 +14,7 @@
 
 //! Trie lookup via HashDB.
 
-use hash_db::HashDBRef;
+use tetsy_hash_db::HashDBRef;
 use crate::nibble::NibbleSlice;
 use crate::node::{Node, NodeHandle, decode_hash};
 use crate::node_codec::NodeCodec;

@@ -18,7 +18,7 @@ use crate::rstd::{
 	boxed::Box, convert::TryInto, marker::PhantomData, ops::Range, vec, vec::Vec,
 };
 
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 
 use crate::{
 	CError, ChildReference, nibble::LeftNibbleSlice, nibble_ops::NIBBLE_LENGTH, NibbleSlice, node::{NodeHandle, NodeHandlePlan, NodePlan, OwnedNode}, NodeCodec, Recorder,

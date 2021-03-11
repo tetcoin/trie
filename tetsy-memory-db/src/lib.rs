@@ -22,7 +22,7 @@ extern crate alloc;
 mod malloc_size_of;
 pub use malloc_size_of::*;
 
-use hash_db::{HashDB, HashDBRef, PlainDB, PlainDBRef, Hasher as KeyHasher,
+use tetsy_hash_db::{HashDB, HashDBRef, PlainDB, PlainDBRef, Hasher as KeyHasher,
 	AsHashDB, AsPlainDB, Prefix};
 use parity_util_mem::{MallocSizeOf, MallocSizeOfOps, MallocShallowSizeOf};
 #[cfg(feature = "std")]
@@ -82,7 +82,7 @@ pub type DefaultMemTracker<T> = NoopTracker<T>;
 ///
 /// # Example
 /// ```rust
-///   use hash_db::{Hasher, HashDB, EMPTY_PREFIX};
+///   use tetsy_hash_db::{Hasher, HashDB, EMPTY_PREFIX};
 ///   use tetsy_keccak_hasher::KeccakHasher;
 ///   use memory_db::{MemoryDB, HashKey};
 ///
@@ -372,11 +372,11 @@ where
 	///
 	/// # Examples
 	/// ```rust
-	/// extern crate hash_db;
+	/// extern crate tetsy_hash_db;
 	/// extern crate tetsy_keccak_hasher;
 	/// extern crate memory_db;
 	///
-	/// use hash_db::{Hasher, HashDB, EMPTY_PREFIX};
+	/// use tetsy_hash_db::{Hasher, HashDB, EMPTY_PREFIX};
 	/// use tetsy_keccak_hasher::KeccakHasher;
 	/// use memory_db::{MemoryDB, HashKey};
 	///
@@ -655,15 +655,15 @@ where
 	KF: KeyFunction<H> + Send + Sync,
 	M: MemTracker<T> + Send + Sync,
 {
-	fn as_hash_db(&self) -> &dyn HashDB<H, T> { self }
-	fn as_hash_db_mut(&mut self) -> &mut dyn HashDB<H, T> { self }
+	fn as_tetsy_hash_db(&self) -> &dyn HashDB<H, T> { self }
+	fn as_tetsy_hash_db_mut(&mut self) -> &mut dyn HashDB<H, T> { self }
 }
 
 #[cfg(test)]
 mod tests {
 	use super::{MemoryDB, HashDB, KeyHasher, HashKey};
 	use parity_util_mem::malloc_size;
-	use hash_db::EMPTY_PREFIX;
+	use tetsy_hash_db::EMPTY_PREFIX;
 	use tetsy_keccak_hasher::KeccakHasher;
 
 	#[test]

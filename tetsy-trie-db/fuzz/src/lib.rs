@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 use tetsy_keccak_hasher::KeccakHasher;
 use memory_db::{HashKey, MemoryDB, PrefixedKey};
 use tetsy_reference_trie::{

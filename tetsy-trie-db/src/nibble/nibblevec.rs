@@ -16,7 +16,7 @@
 
 use crate::nibble::{NibbleSlice, BackingByteVec};
 use crate::nibble::nibble_ops;
-use hash_db::Prefix;
+use tetsy_hash_db::Prefix;
 use crate::node_codec::Partial;
 use super::NibbleVec;
 

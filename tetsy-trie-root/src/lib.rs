@@ -38,7 +38,7 @@ mod rstd {
 
 use self::rstd::*;
 
-pub use hash_db::Hasher;
+pub use tetsy_hash_db::Hasher;
 
 /// Byte-stream oriented trait for constructing closed-form tries.
 pub trait TrieStream {

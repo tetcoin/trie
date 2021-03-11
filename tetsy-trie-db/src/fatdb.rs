@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use hash_db::{HashDBRef, Hasher};
+use tetsy_hash_db::{HashDBRef, Hasher};
 use super::{Result, DBValue, TrieDB, Trie, TrieDBIterator, TrieItem, TrieIterator, Query,
 	TrieLayout, CError, TrieHash};
 

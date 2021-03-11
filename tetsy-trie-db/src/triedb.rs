@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use hash_db::{HashDBRef, Prefix, EMPTY_PREFIX};
+use tetsy_hash_db::{HashDBRef, Prefix, EMPTY_PREFIX};
 use crate::nibble::NibbleSlice;
 use crate::iterator::TrieDBNodeIterator;
 use crate::rstd::boxed::Box;
@@ -34,7 +34,7 @@ use crate::rstd::{fmt, vec::Vec};
 ///
 /// # Example
 /// ```ignore
-/// use hash_db::Hasher;
+/// use tetsy_hash_db::Hasher;
 /// use tetsy_reference_trie::{RefTrieDBMut, RefTrieDB, Trie, TrieMut};
 /// use trie_db::DBValue;
 /// use tetsy_keccak_hasher::KeccakHasher;

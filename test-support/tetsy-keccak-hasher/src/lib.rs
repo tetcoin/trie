@@ -14,7 +14,7 @@
 
 //! Hasher implementation for the Keccak-256 hash
 
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 use tiny_keccak::{Hasher as _, Keccak};
 use hash256_std_hasher::Hash256StdHasher;
 
