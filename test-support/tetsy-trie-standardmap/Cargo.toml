@@ -12,5 +12,5 @@ repository = "https://github.com/tetcoin/trie.git"
 documentation = "https://docs.rs/tetsy-trie-standardmap"
 
 [dependencies]
-tetsy-keccak-hasher = { path = "../keccak-hasher", version = "0.15.4"}
-tetsy-hash-db = { path = "../../hash-db" , version = "0.15.3"}
+tetsy-keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.4"}
+tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.3"}

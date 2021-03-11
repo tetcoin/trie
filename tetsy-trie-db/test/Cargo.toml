@@ -19,12 +19,12 @@ harness = false
 tetsy-trie-db = { path = "..", version = "0.22.3"}
 tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.3"}
 rustc-hex = { version = "2.1.0" }
-tetsy-memory-db = { path = "../../memory-db", version = "0.26.0" }
+tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.26.0" }
 rand = { version = "0.8", default-features = false, features = ["small_rng"] }
-tetsy-trie-root = { path = "../../trie-root", version = "0.16.1"}
-tetsy-trie-standardmap = { path = "../../test-support/trie-standardmap", version = "0.15.3" }
-tetsy-keccak-hasher = { path = "../../test-support/keccak-hasher", version = "0.15.4" }
-tetsy-reference-trie = { path = "../../test-support/reference-trie", version = "0.23.0" }
+tetsy-trie-root = { path = "../../tetsy-trie-root", version = "0.16.1"}
+tetsy-trie-standardmap = { path = "../../test-support/tetsy-trie-standardmap", version = "0.15.3" }
+tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version = "0.15.4" }
+tetsy-reference-trie = { path = "../../test-support/tetsy-reference-trie", version = "0.23.0" }
 hex-literal = "0.3"
 criterion = "0.3"
 env_logger = "0.8"
