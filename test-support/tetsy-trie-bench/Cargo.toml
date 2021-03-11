@@ -12,7 +12,7 @@ repository = "https://github.com/tetcoin/trie.git"
 documentation = "https://docs.rs/tetsy-trie-bench"
 
 [dependencies]
-keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.2" }
+tetsy-keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.2" }
 trie-standardmap = { path = "../tetsy-trie-standardmap", version = "0.15.2" }
 tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.3"}
 tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.26.0" }
