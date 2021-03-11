@@ -18,7 +18,7 @@ criterion_group!(benches, benchmark);
 criterion_main!(benches);
 
 fn benchmark(c: &mut Criterion) {
-	trie_bench::standard_benchmark::<
+	tetsy_trie_bench::standard_benchmark::<
 		tetsy_reference_trie::ExtensionLayout,
 		tetsy_reference_trie::ReferenceTrieStream,
 	>(c, "ref");
