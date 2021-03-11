@@ -2,10 +2,14 @@
 name = "tetsy-trie-db-test"
 version = "0.23.0"
 authors = ["Parity Technologies <admin@parity.io>"]
-description = "Tests for trie-db crate"
-repository = "https://github.com/paritytech/trie"
+description = "tests for tetsy-trie-db crate"
 license = "Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/trie.git"
+documentation = "https://docs.rs/tetsy-trie-db-test"
 
 [[bench]]
 name = "bench"
