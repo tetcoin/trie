@@ -16,7 +16,7 @@
 
 use parity_scale_codec::{Encode, Compact};
 use criterion::{Criterion, black_box, Fun};
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 use hash_db::Hasher;
 use memory_db::{MemoryDB, HashKey};
 use trie_db::{NodeCodec, TrieDB, TrieDBMut, Trie, TrieMut, TrieLayout, TrieHash};

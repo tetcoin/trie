@@ -19,7 +19,7 @@ use trie_db::{
 };
 use hex_literal::hex;
 use hash_db::{HashDB, Hasher};
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 use reference_trie::{
 	RefTrieDB, RefTrieDBMut,
 };

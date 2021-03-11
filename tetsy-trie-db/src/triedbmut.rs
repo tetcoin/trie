@@ -397,7 +397,7 @@ impl<'a, H> Index<&'a StorageHandle> for NodeStorage<H> {
 /// use hash_db::Hasher;
 /// use reference_trie::{RefTrieDBMut, TrieMut};
 /// use trie_db::DBValue;
-/// use keccak_hasher::KeccakHasher;
+/// use tetsy_keccak_hasher::KeccakHasher;
 /// use memory_db::*;
 ///
 /// let mut memdb = MemoryDB::<KeccakHasher, HashKey<_>, DBValue>::default();

@@ -15,7 +15,7 @@
 //! Key-value datastore with a modified Merkle tree.
 
 use hash_db::Hasher;
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 
 type H256 = <KeccakHasher as hash_db::Hasher>::Out;
 

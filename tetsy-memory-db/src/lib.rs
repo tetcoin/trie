@@ -83,7 +83,7 @@ pub type DefaultMemTracker<T> = NoopTracker<T>;
 /// # Example
 /// ```rust
 ///   use hash_db::{Hasher, HashDB, EMPTY_PREFIX};
-///   use keccak_hasher::KeccakHasher;
+///   use tetsy_keccak_hasher::KeccakHasher;
 ///   use memory_db::{MemoryDB, HashKey};
 ///
 ///   let mut m = MemoryDB::<KeccakHasher, HashKey<_>, Vec<u8>>::default();
@@ -373,11 +373,11 @@ where
 	/// # Examples
 	/// ```rust
 	/// extern crate hash_db;
-	/// extern crate keccak_hasher;
+	/// extern crate tetsy_keccak_hasher;
 	/// extern crate memory_db;
 	///
 	/// use hash_db::{Hasher, HashDB, EMPTY_PREFIX};
-	/// use keccak_hasher::KeccakHasher;
+	/// use tetsy_keccak_hasher::KeccakHasher;
 	/// use memory_db::{MemoryDB, HashKey};
 	///
 	/// fn main() {
@@ -664,7 +664,7 @@ mod tests {
 	use super::{MemoryDB, HashDB, KeyHasher, HashKey};
 	use parity_util_mem::malloc_size;
 	use hash_db::EMPTY_PREFIX;
-	use keccak_hasher::KeccakHasher;
+	use tetsy_keccak_hasher::KeccakHasher;
 
 	#[test]
 	fn memorydb_remove_and_purge() {

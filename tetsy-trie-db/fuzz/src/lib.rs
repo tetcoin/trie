@@ -14,7 +14,7 @@
 
 
 use hash_db::Hasher;
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 use memory_db::{HashKey, MemoryDB, PrefixedKey};
 use reference_trie::{
 	calc_root_no_extension,

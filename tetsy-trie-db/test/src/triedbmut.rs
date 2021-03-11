@@ -18,7 +18,7 @@ use log::debug;
 use trie_db::{DBValue, TrieMut, NodeCodec,};
 use memory_db::{MemoryDB, PrefixedKey};
 use hash_db::{Hasher, HashDB};
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 use reference_trie::{RefTrieDBMutNoExt, RefTrieDBMutAllowEmpty, RefTrieDBMut,
 	ReferenceNodeCodec, reference_trie_root, reference_trie_root_no_extension};
 

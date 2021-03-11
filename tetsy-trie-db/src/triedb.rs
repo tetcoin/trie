@@ -37,7 +37,7 @@ use crate::rstd::{fmt, vec::Vec};
 /// use hash_db::Hasher;
 /// use reference_trie::{RefTrieDBMut, RefTrieDB, Trie, TrieMut};
 /// use trie_db::DBValue;
-/// use keccak_hasher::KeccakHasher;
+/// use tetsy_keccak_hasher::KeccakHasher;
 /// use memory_db::*;
 ///
 /// let mut memdb = MemoryDB::<KeccakHasher, HashKey<_>, _>::default();

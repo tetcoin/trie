@@ -26,11 +26,11 @@ criterion_group!(
 criterion_main!(benches);
 
 extern crate hash_db;
-extern crate keccak_hasher;
+extern crate tetsy_keccak_hasher;
 extern crate memory_db;
 
 use hash_db::{HashDB, Hasher, EMPTY_PREFIX};
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 use memory_db::HashKey;
 use memory_db::MemoryDB;
 

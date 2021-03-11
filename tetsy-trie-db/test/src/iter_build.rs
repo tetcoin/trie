@@ -14,7 +14,7 @@
 
 use trie_db::DBValue;
 use memory_db::{MemoryDB, HashKey, PrefixedKey};
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 
 #[test]
 fn trie_root_empty () {

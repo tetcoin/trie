@@ -31,7 +31,7 @@ use trie_db::{
 	Partial,
 };
 use std::borrow::Borrow;
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 
 use trie_db::{
 	nibble_ops, NodeCodec,
@@ -79,7 +79,7 @@ impl TrieLayout for AllowEmptyLayout {
 impl<H: Hasher> TrieConfiguration for GenericNoExtensionLayout<H> { }
 
 /// Trie layout without extension nodes.
-pub type NoExtensionLayout = GenericNoExtensionLayout<keccak_hasher::KeccakHasher>;
+pub type NoExtensionLayout = GenericNoExtensionLayout<tetsy_keccak_hasher::KeccakHasher>;
 
 /// Children bitmap codec for radix 16 trie.
 pub struct Bitmap(u16);
@@ -1089,7 +1089,7 @@ pub fn compare_implementations_no_extension(
 		}
 		*t.root()
 	};
-	
+
 	if root != root_new {
 		{
 			let db : &dyn hash_db::HashDB<_, _> = &memdb;
