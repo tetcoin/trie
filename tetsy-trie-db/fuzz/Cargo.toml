@@ -25,8 +25,8 @@ git = "https://github.com/rust-fuzz/libfuzzer-sys.git"
 members = ["."]
 
 [[bin]]
-name = "trie_root_new"
-path = "fuzz_targets/trie_root_new.rs"
+name = "tetsy_trie_root_new"
+path = "fuzz_targets/tetsy_trie_root_new.rs"
 
 [[bin]]
 name = "trie_unhashed_no_ext"
@@ -34,12 +34,12 @@ path = "fuzz_targets/trie_unhashed_no_ext.rs"
 
 
 [[bin]]
-name = "trie_root"
-path = "fuzz_targets/trie_root.rs"
+name = "tetsy_trie_root"
+path = "fuzz_targets/tetsy_trie_root.rs"
 
 [[bin]]
-name = "trie_root_fix_len"
-path = "fuzz_targets/trie_root_fix_len.rs"
+name = "tetsy_trie_root_fix_len"
+path = "fuzz_targets/tetsy_trie_root_fix_len.rs"
 
 [[bin]]
 name = "no_ext_insert"

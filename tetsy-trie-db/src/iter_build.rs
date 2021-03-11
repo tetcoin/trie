@@ -13,7 +13,7 @@
 // limitations under the License.
 
 //! Alternative tools for working with key value ordered iterator without recursion.
-//! This is iterative implementation of `trie_root` algorithm, using `NodeCodec`
+//! This is iterative implementation of `tetsy_trie_root` algorithm, using `NodeCodec`
 //! implementation.
 //! See `trie_visit` function.
 

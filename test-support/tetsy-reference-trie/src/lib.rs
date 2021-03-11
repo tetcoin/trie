@@ -19,7 +19,7 @@ use std::iter::once;
 use std::marker::PhantomData;
 use std::ops::Range;
 use parity_scale_codec::{Decode, Input, Output, Encode, Compact, Error as CodecError};
-use trie_root::Hasher;
+use tetsy_trie_root::Hasher;
 
 use tetsy_trie_db::{
 	node::{NibbleSlicePlan, NodePlan, NodeHandlePlan},
@@ -38,7 +38,7 @@ use tetsy_trie_db::{
 	Trie, TrieConfiguration,
 	TrieLayout, TrieMut,
 };
-pub use trie_root::TrieStream;
+pub use tetsy_trie_root::TrieStream;
 pub mod node {
 	pub use tetsy_trie_db::node::Node;
 }
@@ -121,36 +121,36 @@ pub type RefSecTrieDBMut<'a> = tetsy_trie_db::SecTrieDBMut<'a, ExtensionLayout>;
 pub type RefLookup<'a, Q> = tetsy_trie_db::Lookup<'a, ExtensionLayout, Q>;
 pub type RefLookupNoExt<'a, Q> = tetsy_trie_db::Lookup<'a, NoExtensionLayout, Q>;
 
-pub fn tetsy_reference_trie_root<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
+pub fn tetsy_reference_tetsy_trie_root<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
 {
-	trie_root::trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(input)
+	tetsy_trie_root::tetsy_trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(input)
 }
 
-fn tetsy_reference_trie_root_unhashed<I, A, B>(input: I) -> Vec<u8> where
+fn tetsy_reference_tetsy_trie_root_unhashed<I, A, B>(input: I) -> Vec<u8> where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
 {
-	trie_root::unhashed_trie::<KeccakHasher, ReferenceTrieStream, _, _, _>(input)
+	tetsy_trie_root::unhashed_trie::<KeccakHasher, ReferenceTrieStream, _, _, _>(input)
 }
 
-pub fn tetsy_reference_trie_root_no_extension<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
+pub fn tetsy_reference_tetsy_trie_root_no_extension<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
 {
-	trie_root::trie_root_no_extension::<KeccakHasher, ReferenceTrieStreamNoExt, _, _, _>(input)
+	tetsy_trie_root::tetsy_trie_root_no_extension::<KeccakHasher, ReferenceTrieStreamNoExt, _, _, _>(input)
 }
 
-fn tetsy_reference_trie_root_unhashed_no_extension<I, A, B>(input: I) -> Vec<u8> where
+fn tetsy_reference_tetsy_trie_root_unhashed_no_extension<I, A, B>(input: I) -> Vec<u8> where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
 {
-	trie_root::unhashed_trie_no_extension::<KeccakHasher, ReferenceTrieStreamNoExt, _, _, _>(input)
+	tetsy_trie_root::unhashed_trie_no_extension::<KeccakHasher, ReferenceTrieStreamNoExt, _, _, _>(input)
 }
 
 const EMPTY_TRIE: u8 = 0;
@@ -987,7 +987,7 @@ pub fn compare_unhashed(
 		trie_visit::<ExtensionLayout, _, _, _, _>(data.clone().into_iter(), &mut cb);
 		cb.root.unwrap_or(Default::default())
 	};
-	let root = tetsy_reference_trie_root_unhashed(data);
+	let root = tetsy_reference_tetsy_trie_root_unhashed(data);
 
 	assert_eq!(root, root_new);
 }
@@ -1002,7 +1002,7 @@ pub fn compare_unhashed_no_extension(
 		trie_visit::<NoExtensionLayout, _, _, _, _>(data.clone().into_iter(), &mut cb);
 		cb.root.unwrap_or(Default::default())
 	};
-	let root = tetsy_reference_trie_root_unhashed_no_extension(data);
+	let root = tetsy_reference_tetsy_trie_root_unhashed_no_extension(data);
 
 	assert_eq!(root, root_new);
 }
@@ -1112,7 +1112,7 @@ pub fn compare_implementations_no_extension(
 	assert_eq!(root, root_new);
 }
 
-/// `compare_implementations_no_extension` for unordered input (trie_root does
+/// `compare_implementations_no_extension` for unordered input (tetsy_trie_root does
 /// ordering before running when trie_build expect correct ordering).
 pub fn compare_implementations_no_extension_unordered(
 	data: Vec<(Vec<u8>, Vec<u8>)>,

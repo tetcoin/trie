@@ -17,7 +17,7 @@ use tetsy_memory_db::{MemoryDB, HashKey, PrefixedKey};
 use tetsy_keccak_hasher::KeccakHasher;
 
 #[test]
-fn trie_root_empty () {
+fn tetsy_trie_root_empty () {
 	compare_implementations(vec![])
 }
 

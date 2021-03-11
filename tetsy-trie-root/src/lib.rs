@@ -80,7 +80,7 @@ fn shared_prefix_length<T: Eq>(first: &[T], second: &[T]) -> usize {
 ///
 /// ```ignore
 /// use hex_literal::hex;
-/// use trie_root::trie_root;
+/// use tetsy_trie_root::tetsy_trie_root;
 /// use tetsy_reference_trie::ReferenceTrieStream;
 /// use tetsy_keccak_hasher::KeccakHasher;
 ///
@@ -91,19 +91,19 @@ fn shared_prefix_length<T: Eq>(first: &[T], second: &[T]) -> usize {
 /// ];
 ///
 /// let root = hex!["0807d5393ae7f349481063ebb5dbaf6bda58db282a385ca97f37dccba717cb79"];
-/// assert_eq!(trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(v), root);
+/// assert_eq!(tetsy_trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(v), root);
 /// ```
-pub fn trie_root<H, S, I, A, B>(input: I) -> H::Out where
+pub fn tetsy_trie_root<H, S, I, A, B>(input: I) -> H::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord,
 	B: AsRef<[u8]>,
 	H: Hasher,
 	S: TrieStream,
 {
-	trie_root_inner::<H, S, I, A, B>(input, false)
+	tetsy_trie_root_inner::<H, S, I, A, B>(input, false)
 }
 
-fn trie_root_inner<H, S, I, A, B>(input: I, no_extension: bool) -> H::Out where
+fn tetsy_trie_root_inner<H, S, I, A, B>(input: I, no_extension: bool) -> H::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord,
 	B: AsRef<[u8]>,
@@ -137,20 +137,20 @@ fn trie_root_inner<H, S, I, A, B>(input: I, no_extension: bool) -> H::Out where
 	H::hash(&stream.out())
 }
 
-/// Variant of `trie_root` for patricia trie without extension node.
-/// See [`trie_root`].
-pub fn trie_root_no_extension<H, S, I, A, B>(input: I) -> H::Out where
+/// Variant of `tetsy_trie_root` for patricia trie without extension node.
+/// See [`tetsy_trie_root`].
+pub fn tetsy_trie_root_no_extension<H, S, I, A, B>(input: I) -> H::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord,
 	B: AsRef<[u8]>,
 	H: Hasher,
 	S: TrieStream,
 {
-	trie_root_inner::<H, S, I, A, B>(input, true)
+	tetsy_trie_root_inner::<H, S, I, A, B>(input, true)
 }
 
 //#[cfg(test)]	// consider feature="std"
-/// Method similar to `trie_root` but returning the root encoded
+/// Method similar to `tetsy_trie_root` but returning the root encoded
 /// node instead of its hash.
 /// Mainly use for testing or debugging.
 pub fn unhashed_trie<H, S, I, A, B>(input: I) -> Vec<u8> where
@@ -212,7 +212,7 @@ pub fn unhashed_trie_no_extension<H, S, I, A, B>(input: I) -> Vec<u8> where
 ///
 /// ```ignore
 /// use hex_literal::hex;
-/// use trie_root::sec_trie_root;
+/// use tetsy_trie_root::sec_tetsy_trie_root;
 /// use tetsy_keccak_hasher::KeccakHasher;
 /// use tetsy_reference_trie::ReferenceTrieStream;
 ///
@@ -223,9 +223,9 @@ pub fn unhashed_trie_no_extension<H, S, I, A, B>(input: I) -> Vec<u8> where
 /// ];
 ///
 /// let root = hex!["d6e02b2bd48aa04fd2ad87cfac1144a29ca7f7dc60f4526c7b7040763abe3d43"];
-/// assert_eq!(sec_trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(v), root);
+/// assert_eq!(sec_tetsy_trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(v), root);
 /// ```
-pub fn sec_trie_root<H, S, I, A, B>(input: I) -> H::Out where
+pub fn sec_tetsy_trie_root<H, S, I, A, B>(input: I) -> H::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]>,
 	B: AsRef<[u8]>,
@@ -233,7 +233,7 @@ pub fn sec_trie_root<H, S, I, A, B>(input: I) -> H::Out where
 	H::Out: Ord,
 	S: TrieStream,
 {
-	trie_root::<H, S, _, _, _>(input.into_iter().map(|(k, v)| (H::hash(k.as_ref()), v)))
+	tetsy_trie_root::<H, S, _, _, _>(input.into_iter().map(|(k, v)| (H::hash(k.as_ref()), v)))
 }
 
 /// Takes a slice of key/value tuples where the key is a slice of nibbles

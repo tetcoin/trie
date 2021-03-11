@@ -21,7 +21,7 @@ use tetsy_hash_db::Hasher;
 use tetsy_memory_db::{MemoryDB, HashKey};
 use tetsy_trie_db::{NodeCodec, TrieDB, TrieDBMut, Trie, TrieMut, TrieLayout, TrieHash};
 use std::default::Default;
-use trie_root::{TrieStream, trie_root};
+use tetsy_trie_root::{TrieStream, tetsy_trie_root};
 use tetsy_trie_standardmap::*;
 
 struct TrieInsertionList(Vec<(Vec<u8>, Vec<u8>)>, );
@@ -43,7 +43,7 @@ where
 {
 	let funs = vec![
 		Fun::new("Closed", |b, d: &TrieInsertionList| b.iter(&mut ||{
-			trie_root::<L::Hash, S, _, _, _>(d.0.clone())
+			tetsy_trie_root::<L::Hash, S, _, _, _>(d.0.clone())
 		})),
 		Fun::new("Fill", |b, d: &TrieInsertionList| b.iter(&mut ||{
 			let mut memdb = MemoryDB::<_, HashKey<L::Hash>, _>::new(&L::Codec::empty_node()[..]);

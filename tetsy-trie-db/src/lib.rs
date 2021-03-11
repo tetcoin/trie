@@ -406,7 +406,7 @@ pub trait TrieConfiguration: Sized + TrieLayout {
 		cb.root.unwrap_or_default()
 	}
 	/// Determines a trie root given its ordered contents, closed form.
-	fn trie_root<I, A, B>(input: I) -> <Self::Hash as Hasher>::Out where
+	fn tetsy_trie_root<I, A, B>(input: I) -> <Self::Hash as Hasher>::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord,
 	B: AsRef<[u8]>,
@@ -416,7 +416,7 @@ pub trait TrieConfiguration: Sized + TrieLayout {
 		cb.root.unwrap_or_default()
 	}
 	/// Determines a trie root node's data given its ordered contents, closed form.
-	fn trie_root_unhashed<I, A, B>(input: I) -> Vec<u8> where
+	fn tetsy_trie_root_unhashed<I, A, B>(input: I) -> Vec<u8> where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord,
 	B: AsRef<[u8]>,
@@ -433,12 +433,12 @@ pub trait TrieConfiguration: Sized + TrieLayout {
 	}
 	/// A trie root formed from the items, with keys attached according to their
 	/// compact-encoded index (using `parity-codec` crate).
-	fn ordered_trie_root<I, A>(input: I) -> <Self::Hash as Hasher>::Out
+	fn ordered_tetsy_trie_root<I, A>(input: I) -> <Self::Hash as Hasher>::Out
 	where
 		I: IntoIterator<Item = A>,
 		A: AsRef<[u8]>,
 	{
-		Self::trie_root(input
+		Self::tetsy_trie_root(input
 			.into_iter()
 			.enumerate()
 			.map(|(i, v)| (Self::encode_index(i as u32), v))
