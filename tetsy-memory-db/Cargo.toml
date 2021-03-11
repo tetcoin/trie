@@ -17,7 +17,7 @@ tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version =
 hashbrown = { version = "0.9.1", default-features = false, features = [ "ahash" ] }
 
 [dev-dependencies]
-tetsy-keccak-hasher = { path = "../test-support/keccak-hasher", version = "0.15.2"}
+tetsy-keccak-hasher = { path = "../test-support/keccak-hasher", version = "0.15.4"}
 criterion = "0.3.3"
 
 [features]
