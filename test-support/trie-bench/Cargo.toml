@@ -1,18 +1,22 @@
 [package]
-name = "trie-bench"
-description = "Standard benchmarking suite for tries"
+name = "tetsy-trie-bench"
 version = "0.27.0"
-authors = ["Parity Technologies <admin@parity.io>"]
-repository = "https://github.com/paritytech/trie/"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "tetsy standard benchmarking suite for tries"
 license = "Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/trie.git"
+documentation = "https://docs.rs/tetsy-trie-bench"
 
 [dependencies]
-keccak-hasher = { path = "../keccak-hasher", version = "0.15.2" }
-trie-standardmap = { path = "../trie-standardmap", version = "0.15.2" }
-hash-db = { path = "../../hash-db" , version = "0.15.2"}
-memory-db = { path = "../../memory-db", version = "0.26.0" }
-trie-root = { path = "../../trie-root", version = "0.16.0" }
-trie-db = { path = "../../trie-db", version = "0.22.0" }
+keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.2" }
+trie-standardmap = { path = "../tetsy-trie-standardmap", version = "0.15.2" }
+tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.3"}
+tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.26.0" }
+tetsy-trie-root = { path = "../../tetsy-trie-root", version = "0.16.0" }
+tetsy-trie-db = { path = "../../tetsy-trie-db", version = "0.22.0" }
 criterion = "0.3.3"
-parity-scale-codec = { version = "2.0.0" }
+tetsy-scale-codec = { version = "2.0.1" }

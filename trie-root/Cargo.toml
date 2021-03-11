@@ -1,15 +1,18 @@
 [package]
-name = "trie-root"
-version = "0.16.0"
-authors = ["Parity Technologies <admin@parity.io>"]
-description = "In-memory patricia trie operations"
-repository = "https://github.com/paritytech/trie"
+name = "tetsy-trie-root"
+version = "0.16.1"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "tetsy in-memory patricia trie operations"
 license = "Apache-2.0"
-categories = [ "no-std" ]
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies", "no-std" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/trie.git"
+documentation = "https://docs.rs/tetsy-trie-root"
 
 [dependencies]
-hash-db = { path = "../hash-db", default-features = false, version = "0.15.2" }
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.3" }
 
 [features]
 default = ["std"]

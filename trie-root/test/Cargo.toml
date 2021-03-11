@@ -1,5 +1,5 @@
 [package]
-name = "trie-root-test"
+name = "tetsy-trie-root-test"
 version = "0.17.0"
 authors = ["Parity Technologies <admin@parity.io>"]
 description = "Tests fo trie-root crate"
@@ -9,9 +9,9 @@ categories = [ ]
 edition = "2018"
 
 [dependencies]
-trie-root = { path = "..", version = "0.16.0" }
-hash-db = { path = "../../hash-db", version = "0.15.2" }
+tetsy-trie-root = { path = "..", version = "0.16.0" }
+tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2" }
 hex-literal = "0.3"
-keccak-hasher = { path = "../../test-support/keccak-hasher", version = "0.15.2" }
-trie-standardmap = { path = "../../test-support/trie-standardmap", version = "0.15.2" }
-reference-trie = { path = "../../test-support/reference-trie", version = "0.23.0" }
+tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version = "0.15.2" }
+tetsy-trie-standardmap = { path = "../../test-support/tetsy-trie-standardmap", version = "0.15.2" }
+tetsy-reference-trie = { path = "../../test-support/tetsy-reference-trie", version = "0.23.0" }

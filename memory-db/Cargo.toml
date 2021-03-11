@@ -1,26 +1,30 @@
 [package]
-name = "memory-db"
+name = "tetsy-memory-db"
 version = "0.26.0"
-authors = ["Parity Technologies <admin@parity.io>"]
-description = "In-memory implementation of hash-db, useful for tests"
-repository = "https://github.com/paritytech/trie"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "in-memory implementation of tetsy-hash-db, useful for tests"
 license = "Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/trie.git"
+documentation = "https://docs.rs/tetsy-memory-db"
 
 [dependencies]
-parity-util-mem = { version = "0.9.0", default-features = false, features = ["hashbrown"] }
-hash-db = { path = "../hash-db", default-features = false, version = "0.15.2"}
+tetsy-util-mem = { version = "0.9.0", default-features = false, features = ["hashbrown"] }
+tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.3"}
 hashbrown = { version = "0.9.1", default-features = false, features = [ "ahash" ] }
 
 [dev-dependencies]
-keccak-hasher = { path = "../test-support/keccak-hasher", version = "0.15.2"}
+tetsy-keccak-hasher = { path = "../test-support/keccak-hasher", version = "0.15.2"}
 criterion = "0.3.3"
 
 [features]
 default = ["std"]
 std = [
-  "hash-db/std",
-  "parity-util-mem/std",
+  "tetsy-hash-db/std",
+  "tetsy-util-mem/std",
 ]
 
 [[bench]]

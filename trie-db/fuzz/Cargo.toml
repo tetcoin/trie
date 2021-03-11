@@ -1,5 +1,5 @@
 [package]
-name = "trie-db-fuzz"
+name = "tetsy-trie-db-fuzz"
 version = "0.0.1"
 authors = []
 publish = false
@@ -9,10 +9,10 @@ edition = "2018"
 cargo-fuzz = true
 
 [dependencies]
-hash-db = { path = "../../hash-db", version = "0.15.2" }
-memory-db = { path = "../../memory-db", version = "0.21.0" }
-reference-trie = { path = "../../test-support/reference-trie", version = "0.21.0" }
-keccak-hasher = { path = "../../test-support/keccak-hasher", version = "0.15.2" }
+tetsy-hash-db = { path = "../../hash-db", version = "0.15.3" }
+tetsy-memory-db = { path = "../../memory-db", version = "0.21.0" }
+tetsy-reference-trie = { path = "../../test-support/reference-trie", version = "0.21.0" }
+tetsy-keccak-hasher = { path = "../../test-support/keccak-hasher", version = "0.15.2" }
 
 [dependencies.trie-db]
 path = ".."

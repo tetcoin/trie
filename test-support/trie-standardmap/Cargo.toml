@@ -1,11 +1,16 @@
 [package]
-name = "trie-standardmap"
-description = "Standard test map for profiling tries"
-version = "0.15.2"
-authors = ["Parity Technologies <admin@parity.io>"]
+name = "tetsy-trie-standardmap"
+version = "0.15.3"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "standard tetsy test map for profiling tries"
 license = "Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/trie.git"
+documentation = "https://docs.rs/tetsy-trie-standardmap"
 
 [dependencies]
-keccak-hasher = { path = "../keccak-hasher", version = "0.15.2"}
-hash-db = { path = "../../hash-db" , version = "0.15.2"}
+tetsy-keccak-hasher = { path = "../keccak-hasher", version = "0.15.2"}
+tetsy-hash-db = { path = "../../hash-db" , version = "0.15.3"}
