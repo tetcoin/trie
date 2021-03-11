@@ -212,7 +212,7 @@ pub fn unhashed_trie_no_extension<H, S, I, A, B>(input: I) -> Vec<u8> where
 ///
 /// ```ignore
 /// use hex_literal::hex;
-/// use trie_root::sec_trie_root;
+/// use tetsy_trie_root::sec_trie_root;
 /// use tetsy_keccak_hasher::KeccakHasher;
 /// use tetsy_reference_trie::ReferenceTrieStream;
 ///
@@ -233,7 +233,7 @@ pub fn sec_trie_root<H, S, I, A, B>(input: I) -> H::Out where
 	H::Out: Ord,
 	S: TrieStream,
 {
-	trie_root::<H, S, _, _, _>(input.into_iter().map(|(k, v)| (H::hash(k.as_ref()), v)))
+	tetsy_trie_root::<H, S, _, _, _>(input.into_iter().map(|(k, v)| (H::hash(k.as_ref()), v)))
 }
 
 /// Takes a slice of key/value tuples where the key is a slice of nibbles
