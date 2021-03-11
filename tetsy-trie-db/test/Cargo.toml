@@ -16,7 +16,7 @@ name = "bench"
 harness = false
 
 [dependencies]
-tetsy-trie-db = { path = "..", version = "0.22.1"}
+tetsy-trie-db = { path = "..", version = "0.22.3"}
 tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.3"}
 rustc-hex = { version = "2.1.0" }
 tetsy-memory-db = { path = "../../memory-db", version = "0.26.0" }

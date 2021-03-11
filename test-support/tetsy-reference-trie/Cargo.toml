@@ -15,7 +15,7 @@ documentation = "https://docs.rs/tetsy-reference-trie"
 tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.3"}
 tetsy-hash256-std-hasher = { path = "../../tetsy-hash256-std-hasher", version = "0.15.3" }
 tetsy-keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.4" }
-tetsy-trie-db = { path = "../../tetsy-trie-db", default-features = false, version = "0.22.0" }
+tetsy-trie-db = { path = "../../tetsy-trie-db", default-features = false, version = "0.22.3" }
 tetsy-trie-root = { path = "../../tetsy-trie-root", default-features = false, version = "0.16.0" }
 tetsy-scale-codec = { version = "2.0.1", features = ["derive"] }
 
