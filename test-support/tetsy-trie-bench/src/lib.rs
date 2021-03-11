@@ -22,7 +22,7 @@ use memory_db::{MemoryDB, HashKey};
 use trie_db::{NodeCodec, TrieDB, TrieDBMut, Trie, TrieMut, TrieLayout, TrieHash};
 use std::default::Default;
 use trie_root::{TrieStream, trie_root};
-use trie_standardmap::*;
+use tetsy_trie_standardmap::*;
 
 struct TrieInsertionList(Vec<(Vec<u8>, Vec<u8>)>, );
 impl ::std::fmt::Display for TrieInsertionList {

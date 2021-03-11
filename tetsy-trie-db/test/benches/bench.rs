@@ -15,7 +15,7 @@
 use criterion::{criterion_group, criterion_main, Bencher, black_box, Criterion};
 
 use trie_db::{NibbleSlice, proof::{generate_proof, verify_proof}, Trie};
-use trie_standardmap::{Alphabet, StandardMap, ValueMode};
+use tetsy_trie_standardmap::{Alphabet, StandardMap, ValueMode};
 
 criterion_group!(benches,
 	root_old,

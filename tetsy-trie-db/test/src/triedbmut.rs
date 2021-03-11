@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use env_logger;
-use trie_standardmap::*;
+use tetsy_trie_standardmap::*;
 use log::debug;
 use trie_db::{DBValue, TrieMut, NodeCodec,};
 use memory_db::{MemoryDB, PrefixedKey};
