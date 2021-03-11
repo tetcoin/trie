@@ -10,7 +10,7 @@ cargo-fuzz = true
 
 [dependencies]
 tetsy-hash-db = { path = "../../hash-db", version = "0.15.3" }
-tetsy-memory-db = { path = "../../memory-db", version = "0.21.0" }
+tetsy-memory-db = { path = "../../memory-db", version = "0.26.0" }
 tetsy-reference-trie = { path = "../../test-support/reference-trie", version = "0.23.0" }
 tetsy-keccak-hasher = { path = "../../test-support/keccak-hasher", version = "0.15.4" }
 
