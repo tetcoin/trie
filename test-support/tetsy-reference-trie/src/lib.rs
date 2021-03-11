@@ -126,7 +126,7 @@ pub fn reference_trie_root<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out w
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
 {
-	tetsy_trie_root::trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(input)
+	tetsy_trie_root::tetsy_trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(input)
 }
 
 fn reference_trie_root_unhashed<I, A, B>(input: I) -> Vec<u8> where
