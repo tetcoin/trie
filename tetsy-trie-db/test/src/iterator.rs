@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use trie_db::{
+use tetsy_trie_db::{
 	DBValue, TrieError, TrieMut,
 	TrieIterator, TrieDBNodeIterator, NibbleSlice, NibbleVec,
 	node::Node,
@@ -27,7 +27,7 @@ use tetsy_reference_trie::{RefTrieDBNoExt, RefTrieDBMutNoExt};
 
 type MemoryDB = tetsy_memory_db::MemoryDB<KeccakHasher, tetsy_memory_db::PrefixedKey<KeccakHasher>, DBValue>;
 
-fn build_trie_db_with_extension(pairs: &[(Vec<u8>, Vec<u8>)])
+fn build_tetsy_trie_db_with_extension(pairs: &[(Vec<u8>, Vec<u8>)])
 	-> (MemoryDB, <KeccakHasher as Hasher>::Out)
 {
 	let mut memdb = MemoryDB::default();
@@ -41,7 +41,7 @@ fn build_trie_db_with_extension(pairs: &[(Vec<u8>, Vec<u8>)])
 	(memdb, root)
 }
 
-fn build_trie_db_without_extension(pairs: &[(Vec<u8>, Vec<u8>)])
+fn build_tetsy_trie_db_without_extension(pairs: &[(Vec<u8>, Vec<u8>)])
 	-> (MemoryDB, <KeccakHasher as Hasher>::Out)
 {
 	let mut memdb = MemoryDB::default();
@@ -73,7 +73,7 @@ fn iterator_works_with_extension() {
 		(hex!("02").to_vec(), vec![1; 32]),
 	];
 
-	let (memdb, root) = build_trie_db_with_extension(&pairs);
+	let (memdb, root) = build_tetsy_trie_db_with_extension(&pairs);
 	let trie = RefTrieDB::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 
@@ -146,7 +146,7 @@ fn iterator_works_without_extension() {
 		(hex!("02").to_vec(), vec![1; 32]),
 	];
 
-	let (memdb, root) = build_trie_db_without_extension(&pairs);
+	let (memdb, root) = build_tetsy_trie_db_without_extension(&pairs);
 	let trie = RefTrieDBNoExt::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 
@@ -204,7 +204,7 @@ fn iterator_works_without_extension() {
 
 #[test]
 fn iterator_over_empty_works() {
-	let (memdb, root) = build_trie_db_with_extension(&[]);
+	let (memdb, root) = build_tetsy_trie_db_with_extension(&[]);
 	let trie = RefTrieDB::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 
@@ -230,7 +230,7 @@ fn seek_works_with_extension() {
 		(hex!("02").to_vec(), vec![1; 32]),
 	];
 
-	let (memdb, root) = build_trie_db_with_extension(&pairs);
+	let (memdb, root) = build_tetsy_trie_db_with_extension(&pairs);
 	let trie = RefTrieDB::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 
@@ -275,7 +275,7 @@ fn seek_works_without_extension() {
 		(hex!("02").to_vec(), vec![1; 32]),
 	];
 
-	let (memdb, root) = build_trie_db_without_extension(&pairs);
+	let (memdb, root) = build_tetsy_trie_db_without_extension(&pairs);
 	let trie = RefTrieDBNoExt::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 
@@ -313,7 +313,7 @@ fn seek_works_without_extension() {
 
 #[test]
 fn seek_over_empty_works() {
-	let (memdb, root) = build_trie_db_with_extension(&[]);
+	let (memdb, root) = build_tetsy_trie_db_with_extension(&[]);
 	let trie = RefTrieDB::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 
@@ -342,7 +342,7 @@ fn iterate_over_incomplete_db() {
 		(hex!("03").to_vec(), vec![2; 32]),
 	];
 
-	let (mut memdb, root) = build_trie_db_with_extension(&pairs);
+	let (mut memdb, root) = build_tetsy_trie_db_with_extension(&pairs);
 
 	// Look up the leaf node with prefix "02".
 	let leaf_hash = {
@@ -409,7 +409,7 @@ fn prefix_works_with_extension() {
 		(hex!("02").to_vec(), vec![1; 32]),
 	];
 
-	let (memdb, root) = build_trie_db_with_extension(&pairs);
+	let (memdb, root) = build_tetsy_trie_db_with_extension(&pairs);
 	let trie = RefTrieDB::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 
@@ -457,7 +457,7 @@ fn prefix_works_without_extension() {
 		(hex!("02").to_vec(), vec![1; 32]),
 	];
 
-	let (memdb, root) = build_trie_db_without_extension(&pairs);
+	let (memdb, root) = build_tetsy_trie_db_without_extension(&pairs);
 	let trie = RefTrieDBNoExt::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 
@@ -500,7 +500,7 @@ fn prefix_works_without_extension() {
 
 #[test]
 fn prefix_over_empty_works() {
-	let (memdb, root) = build_trie_db_with_extension(&[]);
+	let (memdb, root) = build_tetsy_trie_db_with_extension(&[]);
 	let trie = RefTrieDB::new(&memdb, &root).unwrap();
 	let mut iter = TrieDBNodeIterator::new(&trie).unwrap();
 	iter.prefix(&hex!("")[..]).unwrap();

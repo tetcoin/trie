@@ -14,7 +14,7 @@
 
 use tetsy_memory_db::{MemoryDB, PrefixedKey};
 use tetsy_keccak_hasher::KeccakHasher;
-use trie_db::{DBValue, Trie, TrieMut, NibbleSlice};
+use tetsy_trie_db::{DBValue, Trie, TrieMut, NibbleSlice};
 use tetsy_reference_trie::{RefTrieDB, RefTrieDBMut, RefLookup};
 use tetsy_reference_trie::{RefTrieDBNoExt, RefTrieDBMutNoExt};
 use hex_literal::hex;

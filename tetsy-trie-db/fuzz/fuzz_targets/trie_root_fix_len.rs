@@ -1,7 +1,7 @@
 
 #![no_main]
 
-use trie_db_fuzz::fuzz_that_tetsy_reference_trie_root_fix_length;
+use tetsy_trie_db_fuzz::fuzz_that_tetsy_reference_trie_root_fix_length;
 use libfuzzer_sys::fuzz_target;
 
 fuzz_target!(|data: &[u8]| {

@@ -17,7 +17,7 @@ use tetsy_memory_db::{MemoryDB, HashKey};
 use tetsy_hash_db::Hasher;
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_reference_trie::{RefTrieDB, RefSecTrieDBMut};
-use trie_db::{DBValue, Trie, TrieMut};
+use tetsy_trie_db::{DBValue, Trie, TrieMut};
 
 #[test]
 fn sectrie_to_trie() {

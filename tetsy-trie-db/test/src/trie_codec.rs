@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-use trie_db::{
+use tetsy_trie_db::{
 	DBValue, encode_compact, decode_compact,
 	Trie, TrieMut, TrieDB, TrieError, TrieDBMut, TrieLayout, Recorder,
 };

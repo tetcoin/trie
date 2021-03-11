@@ -29,7 +29,7 @@ use tetsy_reference_trie::{
 	TrieDBIterator,
 };
 use std::convert::TryInto;
-use trie_db::{DBValue, Trie, TrieDB, TrieDBMut, TrieLayout, TrieMut};
+use tetsy_trie_db::{DBValue, Trie, TrieDB, TrieDBMut, TrieLayout, TrieMut};
 
 fn fuzz_to_data(input: &[u8]) -> Vec<(Vec<u8>,Vec<u8>)> {
 	let mut result = Vec::new();
