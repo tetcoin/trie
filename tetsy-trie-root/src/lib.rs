@@ -93,7 +93,7 @@ fn shared_prefix_length<T: Eq>(first: &[T], second: &[T]) -> usize {
 /// let root = hex!["0807d5393ae7f349481063ebb5dbaf6bda58db282a385ca97f37dccba717cb79"];
 /// assert_eq!(tetsy_trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(v), root);
 /// ```
-pub fn trie_root<H, S, I, A, B>(input: I) -> H::Out where
+pub fn tetsy_trie_root<H, S, I, A, B>(input: I) -> H::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord,
 	B: AsRef<[u8]>,

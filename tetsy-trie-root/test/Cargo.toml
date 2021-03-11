@@ -9,7 +9,7 @@ categories = [ ]
 edition = "2018"
 
 [dependencies]
-tetsy-trie-root = { path = "..", version = "0.16.0-alpha" }
+tetsy-trie-root = { path = "..", version = "0.16.0-beta" }
 tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.2-beta" }
 hex-literal = "0.3"
 tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version = "0.15.2" }
