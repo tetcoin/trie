@@ -16,7 +16,7 @@ keccak-hasher = { path = "../tetsy-keccak-hasher", version = "0.15.2" }
 trie-standardmap = { path = "../tetsy-trie-standardmap", version = "0.15.2" }
 tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.3"}
 tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.26.0" }
-tetsy-trie-root = { path = "../../tetsy-trie-root", version = "0.16.0" }
+tetsy-trie-root = { path = "../../tetsy-trie-root", version = "0.16.1" }
 tetsy-trie-db = { path = "../../tetsy-trie-db", version = "0.22.3" }
 criterion = "0.3.3"
 tetsy-scale-codec = { version = "2.0.1" }

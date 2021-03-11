@@ -21,7 +21,7 @@ tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.3"}
 rustc-hex = { version = "2.1.0" }
 tetsy-memory-db = { path = "../../memory-db", version = "0.26.0" }
 rand = { version = "0.8", default-features = false, features = ["small_rng"] }
-tetsy-trie-root = { path = "../../trie-root", version = "0.16.0"}
+tetsy-trie-root = { path = "../../trie-root", version = "0.16.1"}
 tetsy-trie-standardmap = { path = "../../test-support/trie-standardmap", version = "0.15.3" }
 tetsy-keccak-hasher = { path = "../../test-support/keccak-hasher", version = "0.15.4" }
 tetsy-reference-trie = { path = "../../test-support/reference-trie", version = "0.23.0" }
