@@ -398,7 +398,7 @@ impl<'a, H> Index<&'a StorageHandle> for NodeStorage<H> {
 /// use tetsy_reference_trie::{RefTrieDBMut, TrieMut};
 /// use trie_db::DBValue;
 /// use tetsy_keccak_hasher::KeccakHasher;
-/// use memory_db::*;
+/// use tetsy_memory_db::*;
 ///
 /// let mut memdb = MemoryDB::<KeccakHasher, HashKey<_>, DBValue>::default();
 /// let mut root = Default::default();

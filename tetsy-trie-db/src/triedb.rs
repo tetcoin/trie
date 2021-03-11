@@ -38,7 +38,7 @@ use crate::rstd::{fmt, vec::Vec};
 /// use tetsy_reference_trie::{RefTrieDBMut, RefTrieDB, Trie, TrieMut};
 /// use trie_db::DBValue;
 /// use tetsy_keccak_hasher::KeccakHasher;
-/// use memory_db::*;
+/// use tetsy_memory_db::*;
 ///
 /// let mut memdb = MemoryDB::<KeccakHasher, HashKey<_>, _>::default();
 /// let mut root = Default::default();

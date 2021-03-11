@@ -25,7 +25,7 @@ use tetsy_reference_trie::{
 };
 use tetsy_reference_trie::{RefTrieDBNoExt, RefTrieDBMutNoExt};
 
-type MemoryDB = memory_db::MemoryDB<KeccakHasher, memory_db::PrefixedKey<KeccakHasher>, DBValue>;
+type MemoryDB = tetsy_memory_db::MemoryDB<KeccakHasher, tetsy_memory_db::PrefixedKey<KeccakHasher>, DBValue>;
 
 fn build_trie_db_with_extension(pairs: &[(Vec<u8>, Vec<u8>)])
 	-> (MemoryDB, <KeccakHasher as Hasher>::Out)

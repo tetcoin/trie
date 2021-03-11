@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use memory_db::{MemoryDB, PrefixedKey};
+use tetsy_memory_db::{MemoryDB, PrefixedKey};
 use tetsy_keccak_hasher::KeccakHasher;
 use trie_db::{DBValue, Trie, TrieMut, NibbleSlice};
 use tetsy_reference_trie::{RefTrieDB, RefTrieDBMut, RefLookup};

@@ -22,7 +22,7 @@ use trie_db::{
 	proof::{generate_proof, verify_proof, VerifyError}, Trie,
 };
 
-type MemoryDB<H> = memory_db::MemoryDB<H, memory_db::HashKey<H>, DBValue>;
+type MemoryDB<H> = tetsy_memory_db::MemoryDB<H, tetsy_memory_db::HashKey<H>, DBValue>;
 
 fn test_entries() -> Vec<(&'static [u8], &'static [u8])> {
 	vec![

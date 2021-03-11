@@ -22,7 +22,7 @@ use tetsy_reference_trie::{
 	ExtensionLayout, NoExtensionLayout,
 };
 
-type MemoryDB<H> = memory_db::MemoryDB<H, memory_db::HashKey<H>, DBValue>;
+type MemoryDB<H> = tetsy_memory_db::MemoryDB<H, tetsy_memory_db::HashKey<H>, DBValue>;
 
 fn test_encode_compact<L: TrieLayout>(
 	entries: Vec<(&'static [u8], &'static [u8])>,

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use trie_db::DBValue;
-use memory_db::{MemoryDB, HashKey, PrefixedKey};
+use tetsy_memory_db::{MemoryDB, HashKey, PrefixedKey};
 use tetsy_keccak_hasher::KeccakHasher;
 
 #[test]

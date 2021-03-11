@@ -355,7 +355,7 @@ fn trie_mut_ref_root_b(c: &mut Criterion) {
 
 fn trie_mut_a(c: &mut Criterion) {
 	use trie_db::TrieMut;
-	use memory_db::HashKey;
+	use tetsy_memory_db::HashKey;
 	let data : Vec<Vec<(Vec<u8>, Vec<u8>)>> = vec![
 		input_unsorted(29, 204800 / 2, 512 * 2),
 	];
@@ -365,7 +365,7 @@ fn trie_mut_a(c: &mut Criterion) {
 			let datac:Vec<(Vec<u8>, Vec<u8>)> = data.clone();
 
 			let mut root = Default::default();
-			let mut mdb = memory_db::MemoryDB::<_, HashKey<_>, _>::default();
+			let mut mdb = tetsy_memory_db::MemoryDB::<_, HashKey<_>, _>::default();
 			let mut trie = tetsy_reference_trie::RefTrieDBMut::new(&mut mdb, &mut root);
 			for (key, value) in datac {
 				trie.insert(&key, &value)
@@ -378,7 +378,7 @@ fn trie_mut_a(c: &mut Criterion) {
 
 fn trie_mut_b(c: &mut Criterion) {
 	use trie_db::TrieMut;
-	use memory_db::HashKey;
+	use tetsy_memory_db::HashKey;
 	let data : Vec<Vec<(Vec<u8>, Vec<u8>)>> = vec![
 		//input_unsorted(29, 204800, 512),
 		input_unsorted(29, 204800, 32),
@@ -389,7 +389,7 @@ fn trie_mut_b(c: &mut Criterion) {
 			let datac:Vec<(Vec<u8>, Vec<u8>)> = data.clone();
 
 			let mut root = Default::default();
-			let mut mdb = memory_db::MemoryDB::<_, HashKey<_>, _>::default();
+			let mut mdb = tetsy_memory_db::MemoryDB::<_, HashKey<_>, _>::default();
 			let mut trie = tetsy_reference_trie::RefTrieDBMut::new(&mut mdb, &mut root);
 			for (key, value) in datac {
 				trie.insert(&key, &value)
@@ -401,7 +401,7 @@ fn trie_mut_b(c: &mut Criterion) {
 }
 
 fn trie_mut_build_a(c: &mut Criterion) {
-	use memory_db::HashKey;
+	use tetsy_memory_db::HashKey;
 	let data : Vec<Vec<(Vec<u8>, Vec<u8>)>> = vec![
 		input_unsorted(29, 204800 / 2, 512 * 2),
 	];
@@ -415,14 +415,14 @@ fn trie_mut_build_a(c: &mut Criterion) {
 				.map(|v| (&v.0, &v.1))
 				.collect::<std::collections::BTreeMap<_, _>>();
 
-			let mut mdb = memory_db::MemoryDB::<_, HashKey<_>, _>::default();
+			let mut mdb = tetsy_memory_db::MemoryDB::<_, HashKey<_>, _>::default();
 			tetsy_reference_trie::calc_root_build(inputc, &mut mdb);
 		}),
 		data);
 }
 
 fn trie_mut_build_b(c: &mut Criterion) {
-	use memory_db::HashKey;
+	use tetsy_memory_db::HashKey;
 	let data : Vec<Vec<(Vec<u8>, Vec<u8>)>> = vec![
 		//input_unsorted(29, 204800, 512),
 		input_unsorted(29, 204800, 32),
@@ -437,18 +437,18 @@ fn trie_mut_build_b(c: &mut Criterion) {
 				.map(|v| (&v.0, &v.1))
 				.collect::<std::collections::BTreeMap<_, _>>();
 
-			let mut mdb = memory_db::MemoryDB::<_, HashKey<_>, _>::default();
+			let mut mdb = tetsy_memory_db::MemoryDB::<_, HashKey<_>, _>::default();
 			tetsy_reference_trie::calc_root_build(inputc, &mut mdb);
 		}),
 		data);
 }
 
 fn trie_iteration(c: &mut Criterion) {
-	use memory_db::HashKey;
+	use tetsy_memory_db::HashKey;
 
 	let input = input2(29, 204800, 32);
 
-	let mut mdb = memory_db::MemoryDB::<_, HashKey<_>, _>::default();
+	let mut mdb = tetsy_memory_db::MemoryDB::<_, HashKey<_>, _>::default();
 	let root = tetsy_reference_trie::calc_root_build(input, &mut mdb);
 
 	c.bench_function("trie_iteration", move |b: &mut Bencher|
@@ -461,7 +461,7 @@ fn trie_iteration(c: &mut Criterion) {
 }
 
 fn trie_proof_verification(c: &mut Criterion) {
-	use memory_db::HashKey;
+	use tetsy_memory_db::HashKey;
 
 	let mut data = input_unsorted(29, 204800, 32);
 	let mut keys = data[(data.len() / 3)..]
@@ -474,7 +474,7 @@ fn trie_proof_verification(c: &mut Criterion) {
 	keys.sort();
 	keys.dedup();
 
-	let mut mdb = memory_db::MemoryDB::<_, HashKey<_>, _>::default();
+	let mut mdb = tetsy_memory_db::MemoryDB::<_, HashKey<_>, _>::default();
 	let root = tetsy_reference_trie::calc_root_build(data, &mut mdb);
 
 	let trie = tetsy_reference_trie::RefTrieDB::new(&mdb, &root).unwrap();

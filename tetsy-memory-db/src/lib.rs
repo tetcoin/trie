@@ -84,7 +84,7 @@ pub type DefaultMemTracker<T> = NoopTracker<T>;
 /// ```rust
 ///   use tetsy_hash_db::{Hasher, HashDB, EMPTY_PREFIX};
 ///   use tetsy_keccak_hasher::KeccakHasher;
-///   use memory_db::{MemoryDB, HashKey};
+///   use tetsy_memory_db::{MemoryDB, HashKey};
 ///
 ///   let mut m = MemoryDB::<KeccakHasher, HashKey<_>, Vec<u8>>::default();
 ///   let d = "Hello world!".as_bytes();
@@ -374,11 +374,11 @@ where
 	/// ```rust
 	/// extern crate tetsy_hash_db;
 	/// extern crate tetsy_keccak_hasher;
-	/// extern crate memory_db;
+	/// extern crate tetsy_memory_db;
 	///
 	/// use tetsy_hash_db::{Hasher, HashDB, EMPTY_PREFIX};
 	/// use tetsy_keccak_hasher::KeccakHasher;
-	/// use memory_db::{MemoryDB, HashKey};
+	/// use tetsy_memory_db::{MemoryDB, HashKey};
 	///
 	/// fn main() {
 	///   let mut m = MemoryDB::<KeccakHasher, HashKey<_>, Vec<u8>>::default();

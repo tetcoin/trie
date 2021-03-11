@@ -27,12 +27,12 @@ criterion_main!(benches);
 
 extern crate tetsy_hash_db;
 extern crate tetsy_keccak_hasher;
-extern crate memory_db;
+extern crate tetsy_memory_db;
 
 use tetsy_hash_db::{HashDB, Hasher, EMPTY_PREFIX};
 use tetsy_keccak_hasher::KeccakHasher;
-use memory_db::HashKey;
-use memory_db::MemoryDB;
+use tetsy_memory_db::HashKey;
+use tetsy_memory_db::MemoryDB;
 
 fn instantiation(b: &mut Criterion) {
 	b.bench_function("instantiation", move |b| {

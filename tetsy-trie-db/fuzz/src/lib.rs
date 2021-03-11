@@ -15,7 +15,7 @@
 
 use tetsy_hash_db::Hasher;
 use tetsy_keccak_hasher::KeccakHasher;
-use memory_db::{HashKey, MemoryDB, PrefixedKey};
+use tetsy_memory_db::{HashKey, MemoryDB, PrefixedKey};
 use tetsy_reference_trie::{
 	calc_root_no_extension,
 	compare_no_extension_insert_remove,
