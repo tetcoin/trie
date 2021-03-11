@@ -35,7 +35,7 @@ use crate::rstd::{fmt, vec::Vec};
 /// # Example
 /// ```ignore
 /// use hash_db::Hasher;
-/// use reference_trie::{RefTrieDBMut, RefTrieDB, Trie, TrieMut};
+/// use tetsy_reference_trie::{RefTrieDBMut, RefTrieDB, Trie, TrieMut};
 /// use trie_db::DBValue;
 /// use tetsy_keccak_hasher::KeccakHasher;
 /// use memory_db::*;

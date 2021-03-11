@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use hash_db::Hasher;
-use reference_trie::{
+use tetsy_reference_trie::{
 	ExtensionLayout, NoExtensionLayout,
 };
 

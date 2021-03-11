@@ -16,13 +16,13 @@
 use hash_db::Hasher;
 use tetsy_keccak_hasher::KeccakHasher;
 use memory_db::{HashKey, MemoryDB, PrefixedKey};
-use reference_trie::{
+use tetsy_reference_trie::{
 	calc_root_no_extension,
 	compare_no_extension_insert_remove,
 	ExtensionLayout,
 	NoExtensionLayout,
 	proof::{generate_proof, verify_proof},
-	reference_trie_root,
+	tetsy_reference_trie_root,
 	RefTrieDBMut,
 	RefTrieDBMutNoExt,
 	RefTrieDBNoExt,
@@ -94,7 +94,7 @@ fn fuzz_removal(data: Vec<(Vec<u8>,Vec<u8>)>) -> Vec<(bool, Vec<u8>,Vec<u8>)> {
 	res
 }
 
-pub fn fuzz_that_reference_trie_root(input: &[u8]) {
+pub fn fuzz_that_tetsy_reference_trie_root(input: &[u8]) {
 	let data = data_sorted_unique(fuzz_to_data(input));
 	let mut memdb = MemoryDB::<_, HashKey<_>, _>::default();
 	let mut root = Default::default();
@@ -102,10 +102,10 @@ pub fn fuzz_that_reference_trie_root(input: &[u8]) {
 	for a in 0..data.len() {
 		t.insert(&data[a].0[..], &data[a].1[..]).unwrap();
 	}
-	assert_eq!(*t.root(), reference_trie_root(data));
+	assert_eq!(*t.root(), tetsy_reference_trie_root(data));
 }
 
-pub fn fuzz_that_reference_trie_root_fix_length(input: &[u8]) {
+pub fn fuzz_that_tetsy_reference_trie_root_fix_length(input: &[u8]) {
 	let data = data_sorted_unique(fuzz_to_data_fix_length(input));
 	let mut memdb = MemoryDB::<_, HashKey<_>, _>::default();
 	let mut root = Default::default();
@@ -113,7 +113,7 @@ pub fn fuzz_that_reference_trie_root_fix_length(input: &[u8]) {
 	for a in 0..data.len() {
 		t.insert(&data[a].0[..], &data[a].1[..]).unwrap();
 	}
-	assert_eq!(*t.root(), reference_trie_root(data));
+	assert_eq!(*t.root(), tetsy_reference_trie_root(data));
 }
 
 fn fuzz_to_data_fix_length(input: &[u8]) -> Vec<(Vec<u8>,Vec<u8>)> {
@@ -146,12 +146,12 @@ pub fn fuzz_that_compare_implementations(input: &[u8]) {
 	//println!("data:{:?}", &data);
 	let memdb = MemoryDB::<_, PrefixedKey<_>, _>::default();
 	let hashdb = MemoryDB::<KeccakHasher, PrefixedKey<_>, DBValue>::default();
-	reference_trie::compare_implementations(data, memdb, hashdb);
+	tetsy_reference_trie::compare_implementations(data, memdb, hashdb);
 }
 
 pub fn fuzz_that_unhashed_no_extension(input: &[u8]) {
 	let data = data_sorted_unique(fuzz_to_data(input));
-	reference_trie::compare_unhashed_no_extension(data);
+	tetsy_reference_trie::compare_unhashed_no_extension(data);
 }
 
 pub fn fuzz_that_no_extension_insert(input: &[u8]) {

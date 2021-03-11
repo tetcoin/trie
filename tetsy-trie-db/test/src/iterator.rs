@@ -20,10 +20,10 @@ use trie_db::{
 use hex_literal::hex;
 use hash_db::{HashDB, Hasher};
 use tetsy_keccak_hasher::KeccakHasher;
-use reference_trie::{
+use tetsy_reference_trie::{
 	RefTrieDB, RefTrieDBMut,
 };
-use reference_trie::{RefTrieDBNoExt, RefTrieDBMutNoExt};
+use tetsy_reference_trie::{RefTrieDBNoExt, RefTrieDBMutNoExt};
 
 type MemoryDB = memory_db::MemoryDB<KeccakHasher, memory_db::PrefixedKey<KeccakHasher>, DBValue>;
 

@@ -395,7 +395,7 @@ impl<'a, H> Index<&'a StorageHandle> for NodeStorage<H> {
 /// # Example
 /// ```ignore
 /// use hash_db::Hasher;
-/// use reference_trie::{RefTrieDBMut, TrieMut};
+/// use tetsy_reference_trie::{RefTrieDBMut, TrieMut};
 /// use trie_db::DBValue;
 /// use tetsy_keccak_hasher::KeccakHasher;
 /// use memory_db::*;

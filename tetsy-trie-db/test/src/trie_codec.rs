@@ -18,7 +18,7 @@ use trie_db::{
 	Trie, TrieMut, TrieDB, TrieError, TrieDBMut, TrieLayout, Recorder,
 };
 use hash_db::{HashDB, Hasher, EMPTY_PREFIX};
-use reference_trie::{
+use tetsy_reference_trie::{
 	ExtensionLayout, NoExtensionLayout,
 };
 

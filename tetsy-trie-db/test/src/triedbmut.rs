@@ -19,8 +19,8 @@ use trie_db::{DBValue, TrieMut, NodeCodec,};
 use memory_db::{MemoryDB, PrefixedKey};
 use hash_db::{Hasher, HashDB};
 use tetsy_keccak_hasher::KeccakHasher;
-use reference_trie::{RefTrieDBMutNoExt, RefTrieDBMutAllowEmpty, RefTrieDBMut,
-	ReferenceNodeCodec, reference_trie_root, reference_trie_root_no_extension};
+use tetsy_reference_trie::{RefTrieDBMutNoExt, RefTrieDBMutAllowEmpty, RefTrieDBMut,
+	ReferenceNodeCodec, tetsy_reference_trie_root, tetsy_reference_trie_root_no_extension};
 
 fn populate_trie<'db>(
 	db: &'db mut dyn HashDB<KeccakHasher, DBValue>,
@@ -84,7 +84,7 @@ fn playpen() {
 			count: 100,
 		}.make_with(&mut seed);
 
-		let real = reference_trie_root(x.clone());
+		let real = tetsy_reference_trie_root(x.clone());
 		let mut memdb = MemoryDB::<KeccakHasher, PrefixedKey<_>, DBValue>::default();
 		let mut root = Default::default();
 		let mut memtrie = populate_trie(&mut memdb, &mut root, &x);
@@ -127,7 +127,7 @@ fn playpen() {
 			count: 100,
 		}.make_with(&mut seed);
 
-		let real = reference_trie_root_no_extension(x.clone());
+		let real = tetsy_reference_trie_root_no_extension(x.clone());
 		let mut memdb = MemoryDB::<KeccakHasher, PrefixedKey<_>, DBValue>::default();
 		let mut root = Default::default();
 		let mut memtrie = populate_trie_no_extension(&mut memdb, &mut root, &x);
@@ -174,7 +174,7 @@ fn insert_on_empty() {
 	t.insert(&[0x01u8, 0x23], &[0x01u8, 0x23]).unwrap();
 	assert_eq!(
 		*t.root(),
-		reference_trie_root(vec![ (vec![0x01u8, 0x23], vec![0x01u8, 0x23]) ]),
+		tetsy_reference_trie_root(vec![ (vec![0x01u8, 0x23], vec![0x01u8, 0x23]) ]),
 	);
 }
 
@@ -214,7 +214,7 @@ fn remove_to_empty_no_extension() {
 		t.remove(&[0x01]).unwrap();
 		// commit on drop
 	}
-	assert_eq!(&root[..], &reference_trie::calc_root_no_extension(vec![
+	assert_eq!(&root[..], &tetsy_reference_trie::calc_root_no_extension(vec![
 	 (vec![0x01u8, 0x23], big_value3.to_vec()),
 	 (vec![0x01u8, 0x34], big_value.to_vec()),
 	])[..]);
@@ -229,7 +229,7 @@ fn insert_replace_root() {
 	t.insert(&[0x01u8, 0x23], &[0x23u8, 0x45]).unwrap();
 	assert_eq!(
 		*t.root(),
-		reference_trie_root(vec![ (vec![0x01u8, 0x23], vec![0x23u8, 0x45]) ]),
+		tetsy_reference_trie_root(vec![ (vec![0x01u8, 0x23], vec![0x23u8, 0x45]) ]),
 	);
 }
 
@@ -240,7 +240,7 @@ fn insert_make_branch_root() {
 	let mut t = RefTrieDBMut::new(&mut memdb, &mut root);
 	t.insert(&[0x01u8, 0x23], &[0x01u8, 0x23]).unwrap();
 	t.insert(&[0x11u8, 0x23], &[0x11u8, 0x23]).unwrap();
-	assert_eq!(*t.root(), reference_trie_root(vec![
+	assert_eq!(*t.root(), tetsy_reference_trie_root(vec![
 		(vec![0x01u8, 0x23], vec![0x01u8, 0x23]),
 		(vec![0x11u8, 0x23], vec![0x11u8, 0x23])
 	]));
@@ -254,7 +254,7 @@ fn insert_into_branch_root() {
 	t.insert(&[0x01u8, 0x23], &[0x01u8, 0x23]).unwrap();
 	t.insert(&[0xf1u8, 0x23], &[0xf1u8, 0x23]).unwrap();
 	t.insert(&[0x81u8, 0x23], &[0x81u8, 0x23]).unwrap();
-	assert_eq!(*t.root(), reference_trie_root(vec![
+	assert_eq!(*t.root(), tetsy_reference_trie_root(vec![
 		(vec![0x01u8, 0x23], vec![0x01u8, 0x23]),
 		(vec![0x81u8, 0x23], vec![0x81u8, 0x23]),
 		(vec![0xf1u8, 0x23], vec![0xf1u8, 0x23]),
@@ -268,7 +268,7 @@ fn insert_value_into_branch_root() {
 	let mut t = RefTrieDBMut::new(&mut memdb, &mut root);
 	t.insert(&[0x01u8, 0x23], &[0x01u8, 0x23]).unwrap();
 	t.insert(&[], &[0x0]).unwrap();
-	assert_eq!(*t.root(), reference_trie_root(vec![
+	assert_eq!(*t.root(), tetsy_reference_trie_root(vec![
 		(vec![], vec![0x0]),
 		(vec![0x01u8, 0x23], vec![0x01u8, 0x23]),
 	]));
@@ -281,7 +281,7 @@ fn insert_split_leaf() {
 	let mut t = RefTrieDBMut::new(&mut memdb, &mut root);
 	t.insert(&[0x01u8, 0x23], &[0x01u8, 0x23]).unwrap();
 	t.insert(&[0x01u8, 0x34], &[0x01u8, 0x34]).unwrap();
-	assert_eq!(*t.root(), reference_trie_root(vec![
+	assert_eq!(*t.root(), tetsy_reference_trie_root(vec![
 		(vec![0x01u8, 0x23], vec![0x01u8, 0x23]),
 		(vec![0x01u8, 0x34], vec![0x01u8, 0x34]),
 	]));
@@ -295,7 +295,7 @@ fn insert_split_extenstion() {
 	t.insert(&[0x01, 0x23, 0x45], &[0x01]).unwrap();
 	t.insert(&[0x01, 0xf3, 0x45], &[0x02]).unwrap();
 	t.insert(&[0x01, 0xf3, 0xf5], &[0x03]).unwrap();
-	assert_eq!(*t.root(), reference_trie_root(vec![
+	assert_eq!(*t.root(), tetsy_reference_trie_root(vec![
 		(vec![0x01, 0x23, 0x45], vec![0x01]),
 		(vec![0x01, 0xf3, 0x45], vec![0x02]),
 		(vec![0x01, 0xf3, 0xf5], vec![0x03]),
@@ -312,7 +312,7 @@ fn insert_big_value() {
 	let mut t = RefTrieDBMut::new(&mut memdb, &mut root);
 	t.insert(&[0x01u8, 0x23], big_value0).unwrap();
 	t.insert(&[0x11u8, 0x23], big_value1).unwrap();
-	assert_eq!(*t.root(), reference_trie_root(vec![
+	assert_eq!(*t.root(), tetsy_reference_trie_root(vec![
 		(vec![0x01u8, 0x23], big_value0.to_vec()),
 		(vec![0x11u8, 0x23], big_value1.to_vec())
 	]));
@@ -327,7 +327,7 @@ fn insert_duplicate_value() {
 	let mut t = RefTrieDBMut::new(&mut memdb, &mut root);
 	t.insert(&[0x01u8, 0x23], big_value).unwrap();
 	t.insert(&[0x11u8, 0x23], big_value).unwrap();
-	assert_eq!(*t.root(), reference_trie_root(vec![
+	assert_eq!(*t.root(), tetsy_reference_trie_root(vec![
 		(vec![0x01u8, 0x23], big_value.to_vec()),
 		(vec![0x11u8, 0x23], big_value.to_vec())
 	]));
@@ -383,7 +383,7 @@ fn stress() {
 			count: 4,
 		}.make_with(&mut seed);
 
-		let real = reference_trie_root(x.clone());
+		let real = tetsy_reference_trie_root(x.clone());
 		let mut memdb = MemoryDB::<KeccakHasher, PrefixedKey<_>, DBValue>::default();
 		let mut root = Default::default();
 		let mut memtrie = populate_trie(&mut memdb, &mut root, &x);
@@ -441,7 +441,7 @@ fn insert_empty_denied() {
 		t.insert(key, value).unwrap();
 	}
 
-	assert_eq!(*t.root(), reference_trie_root(x.clone()));
+	assert_eq!(*t.root(), tetsy_reference_trie_root(x.clone()));
 
 	for &(ref key, _) in &x {
 		t.insert(key, &[]).unwrap();
@@ -458,7 +458,7 @@ fn insert_empty_allowed() {
 	let mut root = Default::default();
 	let mut t = RefTrieDBMutAllowEmpty::new(&mut db, &mut root);
 	t.insert(b"test", &[]).unwrap();
-	assert_eq!(*t.root(), reference_trie_root(vec![(b"test".to_vec(), Vec::new())]));
+	assert_eq!(*t.root(), tetsy_reference_trie_root(vec![(b"test".to_vec(), Vec::new())]));
 	assert_eq!(t.get(b"test").unwrap(), Some(Vec::new()));
 }
 

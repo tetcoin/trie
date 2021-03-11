@@ -19,7 +19,7 @@ mod test {
 	use hex_literal::hex;
 	use trie_root::{sec_trie_root, trie_root};
 	use tetsy_keccak_hasher::KeccakHasher;
-	use reference_trie::ReferenceTrieStream;
+	use tetsy_reference_trie::ReferenceTrieStream;
 
 	#[test]
 	fn previous_doc_test_1() {

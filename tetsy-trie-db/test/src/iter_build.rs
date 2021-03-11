@@ -37,7 +37,7 @@ fn root_extension_one () {
 }
 
 fn test_iter(data: Vec<(Vec<u8>, Vec<u8>)>) {
-	use reference_trie::{RefTrieDBMut, RefTrieDB};
+	use tetsy_reference_trie::{RefTrieDBMut, RefTrieDB};
 	use trie_db::{TrieMut, Trie};
 
 	let mut db = MemoryDB::<KeccakHasher, PrefixedKey<_>, DBValue>::default();
@@ -64,7 +64,7 @@ fn test_iter(data: Vec<(Vec<u8>, Vec<u8>)>) {
 }
 
 fn test_iter_no_extension(data: Vec<(Vec<u8>, Vec<u8>)>) {
-	use reference_trie::{RefTrieDBMutNoExt, RefTrieDBNoExt};
+	use tetsy_reference_trie::{RefTrieDBMutNoExt, RefTrieDBNoExt};
 	use trie_db::{TrieMut, Trie};
 
 	let mut db = MemoryDB::<KeccakHasher, PrefixedKey<_>, DBValue>::default();
@@ -102,41 +102,41 @@ fn compare_implementations(data: Vec<(Vec<u8>, Vec<u8>)>) {
 fn compare_implementations_prefixed(data: Vec<(Vec<u8>, Vec<u8>)>) {
 	let memdb = MemoryDB::<_, PrefixedKey<_>, _>::default();
 	let hashdb = MemoryDB::<KeccakHasher, PrefixedKey<_>, DBValue>::default();
-	reference_trie::compare_implementations(data, memdb, hashdb);
+	tetsy_reference_trie::compare_implementations(data, memdb, hashdb);
 }
 fn compare_implementations_h(data: Vec<(Vec<u8>, Vec<u8>)>) {
 	let memdb = MemoryDB::<_, HashKey<_>, _>::default();
 	let hashdb = MemoryDB::<KeccakHasher, HashKey<_>, DBValue>::default();
-	reference_trie::compare_implementations(data, memdb, hashdb);
+	tetsy_reference_trie::compare_implementations(data, memdb, hashdb);
 }
 fn compare_implementations_no_extension(data: Vec<(Vec<u8>, Vec<u8>)>) {
 	let memdb = MemoryDB::<_, HashKey<_>, _>::default();
 	let hashdb = MemoryDB::<KeccakHasher, HashKey<_>, DBValue>::default();
-	reference_trie::compare_implementations_no_extension(data, memdb, hashdb);
+	tetsy_reference_trie::compare_implementations_no_extension(data, memdb, hashdb);
 }
 fn compare_implementations_no_extension_prefixed(data: Vec<(Vec<u8>, Vec<u8>)>) {
 	let memdb = MemoryDB::<_, PrefixedKey<_>, _>::default();
 	let hashdb = MemoryDB::<KeccakHasher, PrefixedKey<_>, DBValue>::default();
-	reference_trie::compare_implementations_no_extension(data, memdb, hashdb);
+	tetsy_reference_trie::compare_implementations_no_extension(data, memdb, hashdb);
 }
 fn compare_implementations_no_extension_unordered(data: Vec<(Vec<u8>, Vec<u8>)>) {
 	let memdb = MemoryDB::<_, HashKey<_>, _>::default();
 	let hashdb = MemoryDB::<KeccakHasher, HashKey<_>, DBValue>::default();
-	reference_trie::compare_implementations_no_extension_unordered(data, memdb, hashdb);
+	tetsy_reference_trie::compare_implementations_no_extension_unordered(data, memdb, hashdb);
 }
 fn compare_no_extension_insert_remove(data: Vec<(bool, Vec<u8>, Vec<u8>)>) {
 	let memdb = MemoryDB::<_, PrefixedKey<_>, _>::default();
-	reference_trie::compare_no_extension_insert_remove(data, memdb);
+	tetsy_reference_trie::compare_no_extension_insert_remove(data, memdb);
 }
 fn compare_root(data: Vec<(Vec<u8>, Vec<u8>)>) {
 	let memdb = MemoryDB::<_, HashKey<_>, _>::default();
-	reference_trie::compare_root(data, memdb);
+	tetsy_reference_trie::compare_root(data, memdb);
 }
 fn compare_unhashed(data: Vec<(Vec<u8>, Vec<u8>)>) {
-	reference_trie::compare_unhashed(data);
+	tetsy_reference_trie::compare_unhashed(data);
 }
 fn compare_unhashed_no_extension(data: Vec<(Vec<u8>, Vec<u8>)>) {
-	reference_trie::compare_unhashed_no_extension(data);
+	tetsy_reference_trie::compare_unhashed_no_extension(data);
 }
 
 // Following tests are a bunch of detected issue here for non regression.

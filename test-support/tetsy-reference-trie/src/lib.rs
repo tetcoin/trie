@@ -121,7 +121,7 @@ pub type RefSecTrieDBMut<'a> = trie_db::SecTrieDBMut<'a, ExtensionLayout>;
 pub type RefLookup<'a, Q> = trie_db::Lookup<'a, ExtensionLayout, Q>;
 pub type RefLookupNoExt<'a, Q> = trie_db::Lookup<'a, NoExtensionLayout, Q>;
 
-pub fn reference_trie_root<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
+pub fn tetsy_reference_trie_root<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
@@ -129,7 +129,7 @@ pub fn reference_trie_root<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out w
 	trie_root::trie_root::<KeccakHasher, ReferenceTrieStream, _, _, _>(input)
 }
 
-fn reference_trie_root_unhashed<I, A, B>(input: I) -> Vec<u8> where
+fn tetsy_reference_trie_root_unhashed<I, A, B>(input: I) -> Vec<u8> where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
@@ -137,7 +137,7 @@ fn reference_trie_root_unhashed<I, A, B>(input: I) -> Vec<u8> where
 	trie_root::unhashed_trie::<KeccakHasher, ReferenceTrieStream, _, _, _>(input)
 }
 
-pub fn reference_trie_root_no_extension<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
+pub fn tetsy_reference_trie_root_no_extension<I, A, B>(input: I) -> <KeccakHasher as Hasher>::Out where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
@@ -145,7 +145,7 @@ pub fn reference_trie_root_no_extension<I, A, B>(input: I) -> <KeccakHasher as H
 	trie_root::trie_root_no_extension::<KeccakHasher, ReferenceTrieStreamNoExt, _, _, _>(input)
 }
 
-fn reference_trie_root_unhashed_no_extension<I, A, B>(input: I) -> Vec<u8> where
+fn tetsy_reference_trie_root_unhashed_no_extension<I, A, B>(input: I) -> Vec<u8> where
 	I: IntoIterator<Item = (A, B)>,
 	A: AsRef<[u8]> + Ord + fmt::Debug,
 	B: AsRef<[u8]> + fmt::Debug,
@@ -987,7 +987,7 @@ pub fn compare_unhashed(
 		trie_visit::<ExtensionLayout, _, _, _, _>(data.clone().into_iter(), &mut cb);
 		cb.root.unwrap_or(Default::default())
 	};
-	let root = reference_trie_root_unhashed(data);
+	let root = tetsy_reference_trie_root_unhashed(data);
 
 	assert_eq!(root, root_new);
 }
@@ -1002,7 +1002,7 @@ pub fn compare_unhashed_no_extension(
 		trie_visit::<NoExtensionLayout, _, _, _, _>(data.clone().into_iter(), &mut cb);
 		cb.root.unwrap_or(Default::default())
 	};
-	let root = reference_trie_root_unhashed_no_extension(data);
+	let root = tetsy_reference_trie_root_unhashed_no_extension(data);
 
 	assert_eq!(root, root_new);
 }
