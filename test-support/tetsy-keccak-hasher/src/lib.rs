@@ -16,7 +16,7 @@
 
 use tetsy_hash_db::Hasher;
 use tiny_keccak::{Hasher as _, Keccak};
-use hash256_std_hasher::Hash256StdHasher;
+use tetsy_hash256_std_hasher::Hash256StdHasher;
 
 /// Concrete `Hasher` impl for the Keccak-256 hash
 #[derive(Default, Debug, Clone, PartialEq)]
@@ -43,7 +43,7 @@ mod tests {
 	use std::collections::HashMap;
 
 	#[test]
-	fn hash256_std_hasher_works() {
+	fn tetsy_hash256_std_hasher_works() {
 		let hello_bytes = b"Hello world!";
 		let hello_key = KeccakHasher::hash(hello_bytes);
 
