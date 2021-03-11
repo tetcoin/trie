@@ -15,7 +15,7 @@
 //! This module contains traits and structs related to the `MallocSizeOf` trait.
 
 use core::marker::PhantomData;
-use parity_util_mem::{malloc_size, MallocSizeOf};
+use tetsy_util_mem::{malloc_size, MallocSizeOf};
 
 
 /// Used to implement incremental evaluation of `MallocSizeOf` for a collection.

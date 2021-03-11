@@ -14,7 +14,7 @@
 
 //! Standard trie benchmarking tool.
 
-use parity_scale_codec::{Encode, Compact};
+use tetsy_scale_codec::{Encode, Compact};
 use criterion::{Criterion, black_box, Fun};
 use tetsy_keccak_hasher::KeccakHasher;
 use tetsy_hash_db::Hasher;

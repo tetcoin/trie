@@ -18,7 +18,7 @@ use std::fmt;
 use std::iter::once;
 use std::marker::PhantomData;
 use std::ops::Range;
-use parity_scale_codec::{Decode, Input, Output, Encode, Compact, Error as CodecError};
+use tetsy_scale_codec::{Decode, Input, Output, Encode, Compact, Error as CodecError};
 use tetsy_trie_root::Hasher;
 
 use tetsy_trie_db::{

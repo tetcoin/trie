@@ -24,7 +24,7 @@ pub use malloc_size_of::*;
 
 use tetsy_hash_db::{HashDB, HashDBRef, PlainDB, PlainDBRef, Hasher as KeyHasher,
 	AsHashDB, AsPlainDB, Prefix};
-use parity_util_mem::{MallocSizeOf, MallocSizeOfOps, MallocShallowSizeOf};
+use tetsy_util_mem::{MallocSizeOf, MallocSizeOfOps, MallocShallowSizeOf};
 #[cfg(feature = "std")]
 use std::{
 	collections::hash_map::Entry,
@@ -662,7 +662,7 @@ where
 #[cfg(test)]
 mod tests {
 	use super::{MemoryDB, HashDB, KeyHasher, HashKey};
-	use parity_util_mem::malloc_size;
+	use tetsy_util_mem::malloc_size;
 	use tetsy_hash_db::EMPTY_PREFIX;
 	use tetsy_keccak_hasher::KeccakHasher;
 
