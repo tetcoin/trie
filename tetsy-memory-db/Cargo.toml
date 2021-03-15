@@ -14,7 +14,7 @@ documentation = "https://docs.rs/tetsy-memory-db"
 [dependencies]
 tetsy-util-mem = { version = "0.9.0", default-features = false, features = ["hashbrown"] }
 tetsy-hash-db = { path = "../tetsy-hash-db", default-features = false, version = "0.15.3"}
-hashbrown = { version = "0.9.1", default-features = false, features = [ "ahash" ] }
+hashbrown = { version = "0.11.0", default-features = false, features = [ "ahash" ] }
 
 [dev-dependencies]
 tetsy-keccak-hasher = { path = "../test-support/tetsy-keccak-hasher", version = "0.15.4"}
