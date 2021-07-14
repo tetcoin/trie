@@ -27,5 +27,5 @@ tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version
 tetsy-reference-trie = { path = "../../test-support/tetsy-reference-trie", version = "0.23.0" }
 hex-literal = "0.3"
 criterion = "0.3"
-env_logger = "0.8"
+env_logger = "0.9"
 log = "0.4"
