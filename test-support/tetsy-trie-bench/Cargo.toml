@@ -18,5 +18,5 @@ tetsy-hash-db = { path = "../../tetsy-hash-db" , version = "0.15.3"}
 tetsy-memory-db = { path = "../../tetsy-memory-db", version = "0.26.0" }
 tetsy-trie-root = { path = "../../tetsy-trie-root", version = "0.16.1" }
 tetsy-trie-db = { path = "../../tetsy-trie-db", version = "0.22.3" }
-criterion = "0.3.3"
+criterion = "0.4.0"
 tetsy-scale-codec = { version = "2.0.1" }

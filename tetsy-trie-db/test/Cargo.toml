@@ -26,6 +26,6 @@ tetsy-trie-standardmap = { path = "../../test-support/tetsy-trie-standardmap", v
 tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version = "0.15.4" }
 tetsy-reference-trie = { path = "../../test-support/tetsy-reference-trie", version = "0.23.0" }
 hex-literal = "0.3"
-criterion = "0.3"
+criterion = "0.4"
 env_logger = "0.8"
 log = "0.4"
