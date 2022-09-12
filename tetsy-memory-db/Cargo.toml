@@ -18,7 +18,7 @@ hashbrown = { version = "0.9.1", default-features = false, features = [ "ahash" 
 
 [dev-dependencies]
 tetsy-keccak-hasher = { path = "../test-support/tetsy-keccak-hasher", version = "0.15.4"}
-criterion = "0.3.3"
+criterion = "0.4.0"
 
 [features]
 default = ["std"]
