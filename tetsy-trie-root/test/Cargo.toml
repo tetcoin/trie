@@ -14,7 +14,7 @@ documentation = "https://docs.rs/tetsy-trie-root-test"
 [dependencies]
 tetsy-trie-root = { path = "..", version = "0.16.1" }
 tetsy-hash-db = { path = "../../tetsy-hash-db", version = "0.15.3" }
-hex-literal = "0.3"
+hex-literal = "0.4"
 tetsy-keccak-hasher = { path = "../../test-support/tetsy-keccak-hasher", version = "0.15.4" }
 tetsy-trie-standardmap = { path = "../../test-support/tetsy-trie-standardmap", version = "0.15.3" }
 tetsy-reference-trie = { path = "../../test-support/tetsy-reference-trie", version = "0.23.0" }
